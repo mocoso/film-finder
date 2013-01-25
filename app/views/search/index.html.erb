@@ -1,0 +1,16 @@
+<%= form_tag '/', :method => :get do %>
+  <label>Search</label>
+  <%= text_field_tag :query, params[:query] %>
+  <%= submit_tag 'Search for film' %>
+<% end %>
+
+<% if searched? %>
+  <ol>
+    <% search_results.each do |result| %>
+      <li>
+        <h3><%= link_to result.title, result.url %></h3>
+        <p><%= link_to "#{result.price} from #{result.service}", result.url %></p>
+      </li>
+    <% end %>
+  </ol>
+<% end %>
