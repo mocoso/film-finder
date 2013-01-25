@@ -8,6 +8,13 @@ require 'rspec/autorun'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
+require 'vcr'
+VCR.configure do |config|
+  config.cassette_library_dir = 'spec/cassettes'
+  config.hook_into :webmock
+  config.configure_rspec_metadata!
+end
+
 RSpec.configure do |config|
   # ## Mock Framework
   #
@@ -27,4 +34,9 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+
+  # so we can use :vcr rather than :vcr => true;
+  # in RSpec 3 this will no longer be necessary.
+  config.treat_symbols_as_metadata_keys_with_true_values = true
 end

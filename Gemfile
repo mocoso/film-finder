@@ -5,7 +5,7 @@ ruby '1.9.3'
 gem 'rails', '3.2.11'
 
 gem 'jquery-rails'
-
+gem 'nokogiri'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -21,4 +21,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'vcr'
+  gem 'webmock'
+  gem 'debugger'
 end
