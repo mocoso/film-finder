@@ -14,7 +14,17 @@ module Search
     attr_accessor :query
 
     def search_doc
-      @search_doc ||= Nokogiri::HTML(open(search_url))
+      unless @search_doc
+        # Open then read required because otherwise nokogiri mangles UTF-8
+        # characters when searching Google Play.
+        #
+        # See http://stackoverflow.com/questions/2572396/nokogiri-open-uri-and-unicode-characters
+        # for more info.
+        html = open search_url
+        @search_doc = Nokogiri::HTML html.read
+      end
+
+      @search_doc
     end
 
     def result(result_fragment)
