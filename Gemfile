@@ -22,6 +22,6 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'vcr'
-  gem 'webmock'
+  gem 'webmock', :require => false
   gem 'debugger'
 end
