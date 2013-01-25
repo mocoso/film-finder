@@ -8,6 +8,18 @@ module Search
       attributes[:title]
     end
 
+    def url
+      attributes[:url]
+    end
+
+    def service
+      attributes[:service]
+    end
+
+    def price
+      attributes[:price]
+    end
+
     def ==(other)
       self.attributes == other.attributes
     end
