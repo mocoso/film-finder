@@ -25,9 +25,14 @@ module Search
 
     def result(result_fragment)
       Search::Result.new \
-        :title => title(result_fragment),
-        :url   => url(result_fragment),
-        :price => price(result_fragment)
+        :service => service_name,
+        :title   => title(result_fragment),
+        :url     => url(result_fragment),
+        :price   => price(result_fragment)
+    end
+
+    def service_name
+      'BlinkBox'
     end
 
     def title(result_fragment)
