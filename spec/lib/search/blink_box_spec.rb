@@ -10,10 +10,12 @@ describe Search::BlinkBox do
       it 'should return the films' do
         subject.results.should == [
           Search::Result.new(
-            :title => 'The Dark Knight'
+            :title => 'The Dark Knight',
+            :url   => 'http://www.blinkbox.com/Movies/28710/The-Dark-Knight'
           ),
           Search::Result.new(
-            :title => 'The Dark Knight Rises'
+            :title => 'The Dark Knight Rises',
+            :url   => 'http://www.blinkbox.com/Movies/37807/The-Dark-Knight-Rises'
           )
         ]
       end
