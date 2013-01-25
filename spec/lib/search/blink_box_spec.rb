@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'spec_helper'
 
 describe Search::BlinkBox do
@@ -11,11 +12,13 @@ describe Search::BlinkBox do
         subject.results.should == [
           Search::Result.new(
             :title => 'The Dark Knight',
-            :url   => 'http://www.blinkbox.com/Movies/28710/The-Dark-Knight'
+            :url   => 'http://www.blinkbox.com/Movies/28710/The-Dark-Knight',
+            :price => 'Rent -  £2.49'
           ),
           Search::Result.new(
             :title => 'The Dark Knight Rises',
-            :url   => 'http://www.blinkbox.com/Movies/37807/The-Dark-Knight-Rises'
+            :url   => 'http://www.blinkbox.com/Movies/37807/The-Dark-Knight-Rises',
+            :price => 'Rent -  £3.49'
           )
         ]
       end

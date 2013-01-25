@@ -26,7 +26,8 @@ module Search
     def result(result_fragment)
       Search::Result.new \
         :title => title(result_fragment),
-        :url   => url(result_fragment)
+        :url   => url(result_fragment),
+        :price => price(result_fragment)
     end
 
     def title(result_fragment)
@@ -35,6 +36,10 @@ module Search
 
     def url(result_fragment)
       result_fragment.css('h3 a').first.attributes['href'].value
+    end
+
+    def price(result_fragment)
+      result_fragment.css('li.purchase, li.watch').first.content.strip
     end
 
     def search_url
