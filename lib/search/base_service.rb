@@ -11,7 +11,7 @@ module Search
     end
 
     def request
-      @request ||= Typhoeus::Request.new(search_url)
+      @request ||= Typhoeus::Request.new(search_url, :proxy => ENV['HTTP_PROXY'] )
     end
 
     private
