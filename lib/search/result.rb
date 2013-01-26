@@ -22,7 +22,11 @@ module Search
     end
 
     def price_in_pence
-      (price.match(/£(\d+\.\d*)/)[1].to_f * 100).to_i
+      if match = price.match(/£(\d+\.\d*)/)
+        (match[1].to_f * 100).to_i
+      else
+        0
+      end
     end
 
     def ==(other)
