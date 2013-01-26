@@ -4,7 +4,7 @@ require 'spec_helper'
 describe Search::BlinkBox do
   subject { Search::BlinkBox.new(query) }
 
-  describe '#results', :vcr do
+  describe '#rentals', :vcr do
     let(:hydra) { Typhoeus::Hydra.new }
 
     before(:each) do
@@ -16,14 +16,14 @@ describe Search::BlinkBox do
       let(:query) { 'dark knight' }
 
       it 'should return the films' do
-        subject.results.should == [
-          Search::Result.new(
+        subject.rentals.should == [
+          Rental.new(
             :service => 'BlinkBox',
             :title   => 'The Dark Knight',
             :url     => 'http://www.blinkbox.com/Movies/28710/The-Dark-Knight',
             :price   => 'Rent -  £2.49'
           ),
-          Search::Result.new(
+          Rental.new(
             :service => 'BlinkBox',
             :title   => 'The Dark Knight Rises',
             :url    => 'http://www.blinkbox.com/Movies/37807/The-Dark-Knight-Rises',

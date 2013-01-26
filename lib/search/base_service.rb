@@ -4,9 +4,9 @@ module Search
       self.query = query
     end
 
-    def results
-      @results ||= result_fragments.map do |fragment|
-        result fragment
+    def rentals
+      @rentals ||= rental_fragments.map do |fragment|
+        rental fragment
       end
     end
 
@@ -21,12 +21,12 @@ module Search
       @search_doc ||= Nokogiri::HTML(request.response.body)
     end
 
-    def result(result_fragment)
-      Search::Result.new \
+    def rental(rental_fragment)
+      Rental.new \
         :service => service_name,
-        :title   => title(result_fragment),
-        :url     => url(result_fragment),
-        :price   => price(result_fragment)
+        :title   => title(rental_fragment),
+        :url     => url(rental_fragment),
+        :price   => price(rental_fragment)
     end
   end
 end

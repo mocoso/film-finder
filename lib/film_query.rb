@@ -10,23 +10,23 @@ class FilmQuery
   end
 
   def films
-    @films ||= results.
+    @films ||= rentals.
         group_by { |sr| sr.title.downcase }.
         sort_by { |f| f.last.size }.
-        reverse.map { |f| Film.new(f.last.first.title, :results => f.last) }
+        reverse.map { |f| Film.new(f.last.first.title, :rentals => f.last) }
   end
 
   private
   attr_accessor :query, :hydra
 
-  def results
-    unless @results
+  def rentals
+    unless @rentals
       services.each { |s| self.class.hydra.queue(s.request) }
       self.class.hydra.run
-      @results = services.map(&:results).flatten
+      @rentals = services.map(&:rentals).flatten
     end
 
-    @results
+    @rentals
   end
 
   def services

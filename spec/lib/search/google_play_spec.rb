@@ -4,7 +4,7 @@ require 'spec_helper'
 describe Search::GooglePlay do
   subject { Search::GooglePlay.new(query) }
 
-  describe '#results', :vcr do
+  describe '#rentals', :vcr do
     let(:hydra) { Typhoeus::Hydra.new }
 
     before(:each) do
@@ -16,14 +16,14 @@ describe Search::GooglePlay do
       let(:query) { 'dark knight' }
 
       it 'should return the films' do
-        subject.results.slice(0,2).should == [
-          Search::Result.new(
+        subject.rentals.slice(0,2).should == [
+          Rental.new(
             :service => 'Google Play',
             :title   => 'The Dark Knight',
             :url     => 'https://play.google.com/store/movies/details/The_Dark_Knight?id=TQfcgaNdBCA&feature=search_result',
             :price   => 'From £2.49'
           ),
-          Search::Result.new(
+          Rental.new(
             :service => 'Google Play',
             :title   => 'The Dark Knight Rises',
             :url     => 'https://play.google.com/store/movies/details/The_Dark_Knight_Rises?id=qT3d-QcF7DA&feature=search_result',

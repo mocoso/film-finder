@@ -4,7 +4,7 @@ module Search
   class Film4oD < BaseService
 
     private
-    def result_fragments
+    def rental_fragments
       search_doc.css('.searchResults li.filmResult')
     end
 
@@ -12,16 +12,16 @@ module Search
       'Film4oD'
     end
 
-    def title(result_fragment)
-      result_fragment.css('h3').first.content.strip
+    def title(rental_fragment)
+      rental_fragment.css('h3').first.content.strip
     end
 
-    def url(result_fragment)
-      "http://film4od.film4.com#{result_fragment.css('h3 a').first.attributes['href'].value}"
+    def url(rental_fragment)
+      "http://film4od.film4.com#{rental_fragment.css('h3 a').first.attributes['href'].value}"
     end
 
-    def price(result_fragment)
-      result_fragment.css('.filmControls strong').first.content.strip
+    def price(rental_fragment)
+      rental_fragment.css('.filmControls strong').first.content.strip
     end
 
     def search_url

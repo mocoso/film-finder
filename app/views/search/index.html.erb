@@ -10,9 +10,9 @@
       <li>
         <h3><%= film.title %></h3>
         <ol>
-          <% film.results.each do |result| %>
+          <% film.rentals.each do |rental| %>
             <li>
-              <%= link_to "#{result.price} from #{result.service}", result.url %>
+              <%= link_to "#{rental.price} from #{rental.service}", rental.url %>
             </li>
           <% end %>
         </oL>

@@ -4,7 +4,7 @@ module Search
   class GooglePlay < BaseService
 
     private
-    def result_fragments
+    def rental_fragments
       search_doc.css('li.search-results-item')
     end
 
@@ -12,16 +12,16 @@ module Search
       'Google Play'
     end
 
-    def title(result_fragment)
-      result_fragment.css('.title').first.content.strip
+    def title(rental_fragment)
+      rental_fragment.css('.title').first.content.strip
     end
 
-    def url(result_fragment)
-      "https://play.google.com#{result_fragment.css('a.title').first.attributes['href'].value}"
+    def url(rental_fragment)
+      "https://play.google.com#{rental_fragment.css('a.title').first.attributes['href'].value}"
     end
 
-    def price(result_fragment)
-      result_fragment.css('.buy-button-price').first.content.strip
+    def price(rental_fragment)
+      rental_fragment.css('.buy-button-price').first.content.strip
     end
 
     def search_url

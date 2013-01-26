@@ -4,7 +4,7 @@ require 'spec_helper'
 describe Search::Film4oD do
   subject { Search::Film4oD.new(query) }
 
-  describe '#results', :vcr do
+  describe '#rentals', :vcr do
     let(:hydra) { Typhoeus::Hydra.new }
 
     before(:each) do
@@ -16,20 +16,20 @@ describe Search::Film4oD do
       let(:query) { 'dark knight' }
 
       it 'should return the films' do
-        subject.results.should == [
-          Search::Result.new(
+        subject.rentals.should == [
+          Rental.new(
             :service => 'Film4oD',
             :title   => 'The Dark Knight Rises',
             :url     => 'http://film4od.film4.com/Films/D/The-Dark-Knight-Rises/',
             :price   => '£3.99'
           ),
-          Search::Result.new(
+          Rental.new(
             :service => 'Film4oD',
             :title   => 'The Dark Knight',
             :url     => 'http://film4od.film4.com/Films/D/The-Dark-Knight/',
             :price   => '£2.75'
           ),
-          Search::Result.new(
+          Rental.new(
             :service => 'Film4oD',
             :title   => 'Batman: The Dark Knight Returns Part 1',
             :url     => 'http://film4od.film4.com/Films/B/Batman-The-Dark-Knight-Returns-Part-1/',

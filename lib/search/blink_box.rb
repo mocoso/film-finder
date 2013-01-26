@@ -4,7 +4,7 @@ module Search
   class BlinkBox < BaseService
 
     private
-    def result_fragments
+    def rental_fragments
       search_doc.css('#results li.result')
     end
 
@@ -12,16 +12,16 @@ module Search
       'BlinkBox'
     end
 
-    def title(result_fragment)
-      result_fragment.css('h3').first.content.strip
+    def title(rental_fragment)
+      rental_fragment.css('h3').first.content.strip
     end
 
-    def url(result_fragment)
-      result_fragment.css('h3 a').first.attributes['href'].value
+    def url(rental_fragment)
+      rental_fragment.css('h3 a').first.attributes['href'].value
     end
 
-    def price(result_fragment)
-      result_fragment.css('li.purchase, li.watch').first.content.strip
+    def price(rental_fragment)
+      rental_fragment.css('li.purchase, li.watch').first.content.strip
     end
 
     def search_url

@@ -1,12 +1,12 @@
 class Film
-  attr_reader :title, :results
+  attr_reader :title, :rentals
 
   def initialize(title, options)
     @title = title
-    @results = options[:results].sort_by(&:price_in_pence)
+    @rentals = options[:rentals].sort_by(&:price_in_pence)
   end
 
   def ==(other)
-    title == other.title && results == other.results
+    title == other.title && rentals == other.rentals
   end
 end
