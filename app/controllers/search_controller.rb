@@ -8,10 +8,15 @@ class SearchController < ApplicationController
   end
   helper_method :searched?
 
-  def search_results
+  def search_results_grouped_by_film
     if searched?
-      @results ||= Search::CombinedService.new(params[:query]).results
+      @results ||= Search::CombinedService.
+        new(params[:query]).
+        results.
+        group_by { |sr| sr.title.downcase }.
+        sort_by { |f| f.last.size }.
+        reverse
     end
   end
-  helper_method :search_results
+  helper_method :search_results_grouped_by_film
 end

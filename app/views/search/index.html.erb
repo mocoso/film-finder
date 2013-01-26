@@ -6,10 +6,16 @@
 
 <% if searched? %>
   <ol>
-    <% search_results.each do |result| %>
+    <% search_results_grouped_by_film.each do |film, results| %>
       <li>
-        <h3><%= link_to result.title, result.url %></h3>
-        <p><%= link_to "#{result.price} from #{result.service}", result.url %></p>
+        <h3><%= results.first.title %></h3>
+        <ol>
+          <% results.sort_by(&:price_in_pence).each do |result| %>
+            <li>
+              <%= link_to "#{result.price} from #{result.service}", result.url %>
+            </li>
+          <% end %>
+        </oL>
       </li>
     <% end %>
   </ol>
