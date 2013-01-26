@@ -28,6 +28,10 @@ class Rental
     end
   end
 
+  def image_url
+    attributes[:image_url]
+  end
+
   def ==(other)
     self.attributes == other.attributes
   end

@@ -18,22 +18,25 @@ describe Search::Film4oD do
       it 'should return the films' do
         subject.rentals.should == [
           Rental.new(
-            :service => 'Film4oD',
-            :title   => 'The Dark Knight Rises',
-            :url     => 'http://film4od.film4.com/Films/D/The-Dark-Knight-Rises/',
-            :price   => '£3.99'
+            :service    => 'Film4oD',
+            :title      => 'The Dark Knight Rises',
+            :url        => 'http://film4od.film4.com/Films/D/The-Dark-Knight-Rises/',
+            :image_url  => 'http://content.film4od.com/Images/2012/11/29/portrait130x184/FF-00002660-IM-01portrait130x184.png',
+            :price      => '£3.99'
           ),
           Rental.new(
-            :service => 'Film4oD',
-            :title   => 'The Dark Knight',
-            :url     => 'http://film4od.film4.com/Films/D/The-Dark-Knight/',
-            :price   => '£2.75'
+            :service    => 'Film4oD',
+            :title      => 'The Dark Knight',
+            :url        => 'http://film4od.film4.com/Films/D/The-Dark-Knight/',
+            :image_url  => 'http://content.film4od.com/Images/2012/6/6/portrait130x184/FF-00109368-IM-01portrait130x184.png',
+            :price      => '£2.75'
           ),
           Rental.new(
-            :service => 'Film4oD',
-            :title   => 'Batman: The Dark Knight Returns Part 1',
-            :url     => 'http://film4od.film4.com/Films/B/Batman-The-Dark-Knight-Returns-Part-1/',
-            :price   => '£3.49'
+            :service    => 'Film4oD',
+            :title      => 'Batman: The Dark Knight Returns Part 1',
+            :url        => 'http://film4od.film4.com/Films/B/Batman-The-Dark-Knight-Returns-Part-1/',
+            :image_url  => 'http://content.film4od.com/Images/2012/11/15/portrait130x184/FF-00002653-IM-01portrait130x184.png',
+            :price      => '£3.49'
           )
         ]
       end

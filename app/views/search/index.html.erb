@@ -22,10 +22,14 @@ film you want to rent.</p>
       <% films.each do |film| %>
         <li>
           <h3><%= film.title %></h3>
-          <ul>
+          <ul class="thumbnails">
             <% film.rentals.each do |rental| %>
-              <li>
-                <%= link_to "#{rental.price} from #{rental.service}", rental.url %>
+              <li class="span2">
+                <div class="thumbnail">
+                  <h4><%= link_to rental.price, rental.url %></h4>
+                  <p><%= link_to rental.service, rental.url %></p>
+                  <%= link_to rental.url do %><%= image_tag rental.image_url, :alt => rental.title %><% end %>
+                </div>
               </li>
             <% end %>
           </ul>

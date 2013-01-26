@@ -20,6 +20,10 @@ module Search
       "https://play.google.com#{rental_fragment.css('a.title').first.attributes['href'].value}"
     end
 
+    def image_url(rental_fragment)
+      rental_fragment.css('.thumbnail img').first.attributes['src'].value
+    end
+
     def price(rental_fragment)
       rental_fragment.css('.buy-button-price').first.content.strip
     end

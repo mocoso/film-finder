@@ -18,16 +18,18 @@ describe Search::GooglePlay do
       it 'should return the films' do
         subject.rentals.slice(0,2).should == [
           Rental.new(
-            :service => 'Google Play',
-            :title   => 'The Dark Knight',
-            :url     => 'https://play.google.com/store/movies/details/The_Dark_Knight?id=TQfcgaNdBCA&feature=search_result',
-            :price   => 'From £2.49'
+            :service    => 'Google Play',
+            :title      => 'The Dark Knight',
+            :url        => 'https://play.google.com/store/movies/details/The_Dark_Knight?id=TQfcgaNdBCA&feature=search_result',
+            :image_url  =>"https://i.ytimg.com/vi/TQfcgaNdBCA/movieposter.jpg",
+            :price      => 'From £2.49'
           ),
           Rental.new(
-            :service => 'Google Play',
-            :title   => 'The Dark Knight Rises',
-            :url     => 'https://play.google.com/store/movies/details/The_Dark_Knight_Rises?id=qT3d-QcF7DA&feature=search_result',
-            :price   => 'From £3.49'
+            :service    => 'Google Play',
+            :title      => 'The Dark Knight Rises',
+            :url        => 'https://play.google.com/store/movies/details/The_Dark_Knight_Rises?id=qT3d-QcF7DA&feature=search_result',
+            :image_url  =>"https://i.ytimg.com/vi/qT3d-QcF7DA/movieposter.jpg",
+            :price      => 'From £3.49'
           )
         ]
       end

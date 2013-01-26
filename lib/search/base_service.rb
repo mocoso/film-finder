@@ -23,10 +23,11 @@ module Search
 
     def rental(rental_fragment)
       Rental.new \
-        :service => service_name,
-        :title   => title(rental_fragment),
-        :url     => url(rental_fragment),
-        :price   => price(rental_fragment)
+        :service   => service_name,
+        :title     => title(rental_fragment),
+        :url       => url(rental_fragment),
+        :image_url => image_url(rental_fragment),
+        :price     => price(rental_fragment)
     end
   end
 end

@@ -20,6 +20,10 @@ module Search
       rental_fragment.css('h3 a').first.attributes['href'].value
     end
 
+    def image_url(rental_fragment)
+      rental_fragment.css('.thumb img').first.attributes['src'].value
+    end
+
     def price(rental_fragment)
       rental_fragment.css('li.purchase, li.watch').first.content.strip
     end

@@ -20,6 +20,10 @@ module Search
       "http://film4od.film4.com#{rental_fragment.css('h3 a').first.attributes['href'].value}"
     end
 
+    def image_url(rental_fragment)
+      rental_fragment.css('img').first.attributes['src'].value
+    end
+
     def price(rental_fragment)
       rental_fragment.css('.filmControls strong').first.content.strip
     end
