@@ -5,6 +5,13 @@ describe Search::BlinkBox do
   subject { Search::BlinkBox.new(query) }
 
   describe '#results', :vcr do
+    let(:hydra) { Typhoeus::Hydra.new }
+
+    before(:each) do
+      hydra.queue subject.request
+      hydra.run
+    end
+
     context 'term for which they have multiple films to rent' do
       let(:query) { 'dark knight' }
 

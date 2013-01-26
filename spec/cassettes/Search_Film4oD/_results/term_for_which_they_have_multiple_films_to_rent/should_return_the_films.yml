@@ -2,60 +2,42 @@
 http_interactions:
 - request:
     method: get
-    uri: http://film4od.film4.com/Search/?searchQuery=dark%20knight
+    uri: http://film4od.film4.com/Search/?searchQuery=dark+knight
     body:
       encoding: US-ASCII
       string: ''
     headers:
-      Accept:
-      - ! '*/*'
       User-Agent:
-      - Ruby
+      - Typhoeus - https://github.com/typhoeus/typhoeus
   response:
     status:
       code: 200
-      message: !binary |-
-        T0s=
+      message: OK
     headers:
-      !binary "U2VydmVy":
-      - !binary |-
-        TWljcm9zb2Z0LUlJUy83LjU=
-      !binary "WC1Bc3BuZXQtVmVyc2lvbg==":
-      - !binary |-
-        Mi4wLjUwNzI3
-      !binary "VmFyeQ==":
-      - !binary |-
-        QWNjZXB0LUVuY29kaW5n
-      !binary "Q2FjaGUtQ29udHJvbA==":
-      - !binary |-
-        cHJpdmF0ZSwgbWF4LWFnZT02MDA=
-      !binary "Q29udGVudC1UeXBl":
-      - !binary |-
-        dGV4dC9odG1sOyBjaGFyc2V0PXV0Zi04
-      !binary "RGF0ZQ==":
-      - !binary |-
-        VGh1LCAyNCBKYW4gMjAxMyAyMjozNzo1NyBHTVQ=
-      !binary "RXhwaXJlcw==":
-      - !binary |-
-        VGh1LCAyNCBKYW4gMjAxMyAyMzozNzo1NyBHTVQ=
-      !binary "U2V0LUNvb2tpZQ==":
-      - !binary |-
-        LkFTUFhBTk9OWU1PVVM9QmNDZ1N4VXh6Z0VrQUFBQU5XSmtPR1l6TnpndE56
-        QTBOQzAwT1RWbExXSmpabUl0TURkaFpUZ3haVFJoWlRZNWM1Und3UVh3MXZ2
-        UDJvRzhhVmRMTkM4MWFhTTE7IGV4cGlyZXM9VGh1LCAwNC1BcHItMjAxMyAw
-        OToxNzo1NyBHTVQ7IHBhdGg9LzsgSHR0cE9ubHk=
-      - !binary |-
-        SVBDX1ZlcmlmaWVkPS0xMzcwNTYxMDA0OyBwYXRoPS8=
-      !binary "WC1VYS1Db21wYXRpYmxl":
-      - !binary |-
-        SUU9ZWRnZQ==
-      !binary "WC1DYWNoZS1JbmZv":
-      - !binary |-
-        bm90IGNhY2hlYWJsZTsgcmVzcG9uc2Ugc3BlY2lmaWVkICJDYWNoZS1Db250
-        cm9sOiBwcml2YXRlIg==
-      !binary "Q29udGVudC1MZW5ndGg=":
-      - !binary |-
-        MzYzODE=
+      Server:
+      - Microsoft-IIS/7.5
+      X-AspNet-Version:
+      - 2.0.50727
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - private, max-age=600
+      Content-Type:
+      - text/html; charset=utf-8
+      Date:
+      - Sat, 26 Jan 2013 00:19:43 GMT
+      Expires:
+      - Sat, 26 Jan 2013 01:19:44 GMT
+      Set-Cookie:
+      - .ASPXANONYMOUS=gWEPruwxzgEkAAAAYzJiZGExYWItYjRjMC00YzlhLTk3NTItZGM2YWY0YjRiNmQ5WT5UD-cDQMLiWc0XQvcK5P6reoI1;
+        expires=Fri, 05-Apr-2013 10:59:44 GMT; path=/; HttpOnly
+      - IPC_Verified=-1370561004; path=/
+      X-UA-Compatible:
+      - IE=edge
+      X-Cache-Info:
+      - ! 'not cacheable; response specified "Cache-Control: private"'
+      Content-Length:
+      - '36381'
     body:
       encoding: ASCII-8BIT
       string: !binary |-
@@ -868,6 +850,6 @@ http_interactions:
         OyB9Cjwvc2NyaXB0Pgo8L2Rpdj4NCg0KPHNjcmlwdCB0eXBlPSJ0ZXh0L2ph
         dmFzY3JpcHQiIHNyYz0iL2pzL3NpdGUtZXh0ZW5kZWQuanMiPjwvc2NyaXB0
         Pg0KPC9ib2R5Pg0KPC9odG1sPg0K
-    http_version: 
-  recorded_at: Thu, 24 Jan 2013 22:37:58 GMT
+    http_version: '1.1'
+  recorded_at: Sat, 26 Jan 2013 00:19:45 GMT
 recorded_with: VCR 2.4.0

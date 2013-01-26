@@ -10,21 +10,15 @@ module Search
       end
     end
 
+    def request
+      @request ||= Typhoeus::Request.new(search_url)
+    end
+
     private
     attr_accessor :query
 
     def search_doc
-      unless @search_doc
-        # Open then read required because otherwise nokogiri mangles UTF-8
-        # characters when searching Google Play.
-        #
-        # See http://stackoverflow.com/questions/2572396/nokogiri-open-uri-and-unicode-characters
-        # for more info.
-        html = open search_url
-        @search_doc = Nokogiri::HTML html.read
-      end
-
-      @search_doc
+      @search_doc ||= Nokogiri::HTML(request.response.body)
     end
 
     def result(result_fragment)
