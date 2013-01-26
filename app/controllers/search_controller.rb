@@ -8,15 +8,10 @@ class SearchController < ApplicationController
   end
   helper_method :searched?
 
-  def search_results_grouped_by_film
+  def films
     if searched?
-      @results ||= Search::CombinedService.
-        new(params[:query], hydra).
-        results.
-        group_by { |sr| sr.title.downcase }.
-        sort_by { |f| f.last.size }.
-        reverse
+      @films ||= FilmQuery.new(params[:query]).films
     end
   end
-  helper_method :search_results_grouped_by_film
+  helper_method :films
 end
