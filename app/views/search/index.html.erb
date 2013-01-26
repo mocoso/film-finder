@@ -1,22 +1,39 @@
+<div class="page-header">
+  <h1>Find a film <small>to rent online in the UK</small></h1>
+</div>
+
 <%= form_tag '/', :method => :get do %>
-  <label>Search</label>
-  <%= text_field_tag :query, params[:query] %>
-  <%= submit_tag 'Search for film' %>
+  <div class="input-append">
+    <%= text_field_tag :query, params[:query], :placeholder => 'Film title' %>
+    <%= button_tag 'Find Film', :class => 'btn btn-primary' %>
+  </div>
 <% end %>
 
+<p>Searches <%= link_to 'BlinkBox', 'http://www.blinkbox.com/' %>,
+<%= link_to 'Film4oD', 'http://film4od.film4.com/' %> and
+<%=  link_to 'Google Play', 'https://play.google.com/store/movies' %> for the
+film you want to rent.</p>
+
 <% if searched? %>
-  <ol>
-    <% films.each do |film| %>
-      <li>
-        <h3><%= film.title %></h3>
-        <ol>
-          <% film.rentals.each do |rental| %>
-            <li>
-              <%= link_to "#{rental.price} from #{rental.service}", rental.url %>
-            </li>
-          <% end %>
-        </oL>
-      </li>
-    <% end %>
-  </ol>
+  <hr />
+  <% if films.present? %>
+    <h2>Films matching '<%= params[:query] %>'</h2>
+    <ol class="unstyled">
+      <% films.each do |film| %>
+        <li>
+          <h3><%= film.title %></h3>
+          <ul>
+            <% film.rentals.each do |rental| %>
+              <li>
+                <%= link_to "#{rental.price} from #{rental.service}", rental.url %>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+    </ol>
+  <% else %>
+    <h2>No films found for '<%= params[:query] %>'</h2>
+  <% end %>
 <% end %>
+
