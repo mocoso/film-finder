@@ -11,9 +11,10 @@ class FilmQuery
 
   def films
     @films ||= rentals.
-        group_by { |sr| sr.title.downcase }.
-        sort_by { |f| f.last.size }.
-        reverse.map { |f| Film.new(f.last.first.title, :rentals => f.last) }
+      group_by { |sr| sr.title.downcase }.
+      map { |f| Film.new(f.last.first.title, :rentals => f.last) }.
+      select { |f| f.rentals.size > 1 || f.matches_query?(query) }. # Reject those who don't seem good enough matches - I am looking at you Google Play
+      sort_by { |f| f.rentals.size }.reverse # Prioritize those which are returned by multiple services
   end
 
   private

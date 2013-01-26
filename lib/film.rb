@@ -9,4 +9,8 @@ class Film
   def ==(other)
     title == other.title && rentals == other.rentals
   end
+
+  def matches_query?(query)
+    (title.downcase.split(/\W/).compact & query.downcase.split(/\W/).compact).present?
+  end
 end
