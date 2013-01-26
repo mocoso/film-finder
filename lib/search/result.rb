@@ -1,3 +1,4 @@
+# encoding: utf-8
 module Search
   class Result
     def initialize(attributes)
@@ -18,6 +19,10 @@ module Search
 
     def price
       attributes[:price]
+    end
+
+    def price_in_pence
+      (price.match(/£(\d+\.\d*)/)[1].to_f * 100).to_i
     end
 
     def ==(other)
