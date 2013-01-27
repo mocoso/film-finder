@@ -11,6 +11,11 @@ class Film
   end
 
   def number_of_words_matching_query(query)
-    (title.downcase.split(/\W/).compact & query.downcase.split(/\W/).compact).size
+    (split_into_normalized_words(title) & split_into_normalized_words(query)).size
+  end
+
+  private
+  def split_into_normalized_words(string)
+    string.downcase.gsub('-', '').split(/\W/).compact
   end
 end
