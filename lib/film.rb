@@ -16,6 +16,6 @@ class Film
 
   private
   def split_into_normalized_words(string)
-    string.downcase.gsub('-', '').split(/\W/).compact
+    string.downcase.gsub('-', '').split(/\W/).reject(&:blank?)
   end
 end
