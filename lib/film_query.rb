@@ -22,19 +22,19 @@ class FilmQuery
 
   def rentals
     unless @rentals
-      services.each { |s| self.class.hydra.queue(s.request) }
+      rental_queries.each { |s| self.class.hydra.queue(s.request) }
       self.class.hydra.run
-      @rentals = services.map(&:rentals).flatten
+      @rentals = rental_queries.map(&:rentals).flatten
     end
 
     @rentals
   end
 
-  def services
-    @services ||= [
-      Search::BlinkBox,
-      Search::Film4oD,
-      Search::GooglePlay
-    ].map { |klass| klass.new(query) }
+  def rental_queries
+    @rental_queries ||= [
+      Source::BlinkBox,
+      Source::Film4oD,
+      Source::GooglePlay
+    ].map { |klass| RentalQuery.new query, klass.new }
   end
 end
