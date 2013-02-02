@@ -3,6 +3,14 @@ class FilmQuery
     def hydra
       @@hydra ||= Typhoeus::Hydra.new
     end
+
+    def sources
+      @@sources ||= [
+        Source::BlinkBox.new,
+        Source::Film4oD.new,
+        Source::GooglePlay.new
+      ]
+    end
   end
 
   def initialize(query)
@@ -31,10 +39,9 @@ class FilmQuery
   end
 
   def rental_queries
-    @rental_queries ||= [
-      Source::BlinkBox,
-      Source::Film4oD,
-      Source::GooglePlay
-    ].map { |klass| RentalQuery.new query, klass.new }
+    @rental_queries ||= self.
+      class.
+      sources.
+      map { |source| RentalQuery.new query, source }
   end
 end
