@@ -32,7 +32,7 @@ describe Source::BBCIplayer do
 
     describe '#rental_price' do
       it 'should extract the title from the fragment' do
-        subject.rental_price(fragment).should == 'Free'
+        subject.rental_price(fragment).should == Price.new('Free')
       end
     end
 

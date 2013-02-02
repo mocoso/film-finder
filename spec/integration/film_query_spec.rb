@@ -9,7 +9,7 @@ describe FilmQuery
         :title      => 'The Dark Knight',
         :url        => 'http://www.blinkbox.com/Movies/28710/The-Dark-Knight',
         :image_url  => 'http://cdn3.blinkboxmedia.com/i/contentasset30/000/028/710/ieoabmeo/v=113/w=180;h=100;rm=Crop;q=95/image.jpg',
-        :price      => 'Rent -  £2.49'
+        :price      => Price.new('Rent -  £2.49')
     }
 
     let(:the_dark_knight_1_google_play) {
@@ -18,7 +18,7 @@ describe FilmQuery
         :title      => 'The Dark Knight',
         :url        => 'https://play.google.com/store/movies/details/The_Dark_Knight?id=rl4C51VsNRU&feature=search_result',
         :image_url  => 'https://i.ytimg.com/vi/rl4C51VsNRU/movieposter.jpg',
-        :price      => '£2.49 Rent'
+        :price      => Price.new('£2.49 Rent')
     }
 
     let(:the_dark_knight_2_google_play) {
@@ -27,7 +27,7 @@ describe FilmQuery
         :title      => 'The Dark Knight',
         :url        => 'https://play.google.com/store/movies/details/The_Dark_Knight?id=TQfcgaNdBCA&feature=search_result',
         :image_url  => 'https://i.ytimg.com/vi/TQfcgaNdBCA/movieposter.jpg',
-        :price      => 'From £2.49'
+        :price      => Price.new('From £2.49')
     }
 
     let(:the_dark_knight_film4o_d) {
@@ -36,7 +36,7 @@ describe FilmQuery
         :title      => 'The Dark Knight',
         :url        => 'http://film4od.film4.com/Films/D/The-Dark-Knight/',
         :image_url  => 'http://content.film4od.com/Images/2012/6/6/portrait130x184/FF-00109368-IM-01portrait130x184.png',
-        :price      => '£2.75'
+        :price      => Price.new('£2.75')
     }
 
     let(:the_dark_knight) {

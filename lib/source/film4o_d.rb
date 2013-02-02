@@ -29,7 +29,8 @@ module Source
     end
 
     def rental_price(rental_fragment)
-      rental_fragment.css('.filmControls strong').first.content.strip
+      Price.new(rental_fragment.css('.filmControls
+strong').first.content.strip)
     end
   end
 end

@@ -9,7 +9,7 @@ describe FilmQuery
         :title      => 'EastEnders Omnibus: 03/02/2013',
         :url        => 'http://www.bbc.co.uk/iplayer/episode/b01qlgsr/EastEnders_Omnibus_03_02_2013/',
         :image_url  => 'http://ichef.bbci.co.uk/programmeimages/episode/b01qlgsr_120_68.jpg',
-        :price      => 'Free'
+        :price      => Price.new('Free')
     }
 
     let(:eastenders) {

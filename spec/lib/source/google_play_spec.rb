@@ -32,7 +32,7 @@ describe Source::GooglePlay do
 
     describe '#rental_price' do
       it 'should extract the title from the fragment' do
-        subject.rental_price(fragment).should == 'From £3.49'
+        subject.rental_price(fragment).should == Price.new('From £3.49')
       end
     end
 

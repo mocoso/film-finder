@@ -30,7 +30,7 @@ module Source
     end
 
     def rental_price(rental_fragment)
-      'Free'
+      Price.new 'Free'
     end
   end
 end

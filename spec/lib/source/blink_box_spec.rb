@@ -32,7 +32,7 @@ describe Source::BlinkBox do
 
     describe '#rental_price' do
       it 'should extract the title from the fragment' do
-        subject.rental_price(fragment).should == 'Rent -  £2.49'
+        subject.rental_price(fragment).should == Price.new('Rent - £2.49')
       end
     end
 

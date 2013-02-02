@@ -20,14 +20,6 @@ class Rental
     attributes[:price]
   end
 
-  def price_in_pence
-    if match = price.match(/£(\d+\.\d*)/)
-      (match[1].to_f * 100).to_i
-    else
-      0
-    end
-  end
-
   def image_url
     attributes[:image_url]
   end

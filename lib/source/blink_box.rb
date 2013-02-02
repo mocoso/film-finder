@@ -29,7 +29,7 @@ module Source
     end
 
     def rental_price(rental_fragment)
-      rental_fragment.css('li.purchase, li.watch').first.content.strip
+      Price.new(rental_fragment.css('li.purchase, li.watch').first.content.strip)
     end
   end
 end

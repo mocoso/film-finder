@@ -32,7 +32,7 @@ describe Source::Film4oD do
 
     describe '#rental_price' do
       it 'should extract the title from the fragment' do
-        subject.rental_price(fragment).should == '£3.99'
+        subject.rental_price(fragment).should == Price.new('£3.99')
       end
     end
 
