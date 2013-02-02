@@ -4,6 +4,10 @@ module Source
       'Film4oD'
     end
 
+    def url
+      'http://film4od.film4.com/'
+    end
+
     def search_url(query)
       "http://film4od.film4.com/Search/?#{{ 'searchQuery' => query }.to_query}"
     end

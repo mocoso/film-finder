@@ -4,6 +4,10 @@ module Source
       'BlinkBox'
     end
 
+    def url
+      'http://www.blinkbox.com/'
+    end
+
     def search_url(query)
       "http://www.blinkbox.com/Search?#{{ 'Search' => query }.to_query}"
     end

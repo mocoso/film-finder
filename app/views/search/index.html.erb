@@ -9,10 +9,8 @@
   </div>
 <% end %>
 
-<p>Searches <%= link_to 'BlinkBox', 'http://www.blinkbox.com/' %>,
-<%= link_to 'Film4oD', 'http://film4od.film4.com/' %> and
-<%=  link_to 'Google Play', 'https://play.google.com/store/movies' %> for the
-film you want to watch.</p>
+<p>Searches <%= FilmQuery.sources.map { |s| link_to s.name, s.url
+}.to_sentence.html_safe %> for the film you want to watch.</p>
 
 <% if searched? %>
   <hr />
