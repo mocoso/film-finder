@@ -8,7 +8,7 @@ describe FilmQuery
         :service    => 'BlinkBox',
         :title      => 'The Dark Knight',
         :url        => 'http://www.blinkbox.com/Movies/28710/The-Dark-Knight',
-        :image_url  => 'http://cdn3.blinkboxmedia.com/i/contentasset30/000/028/710/ieoabmeo/v=112/w=180;h=100;rm=Crop;q=95/image.jpg',
+        :image_url  => 'http://cdn3.blinkboxmedia.com/i/contentasset30/000/028/710/ieoabmeo/v=113/w=180;h=100;rm=Crop;q=95/image.jpg',
         :price      => 'Rent -  £2.49'
     }
 
