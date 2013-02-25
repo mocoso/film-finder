@@ -1,4 +1,3 @@
-# encoding: utf-8
 class Rental
   def initialize(attributes)
     @attributes = attributes
