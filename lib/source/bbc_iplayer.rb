@@ -13,7 +13,6 @@ module Source
     end
 
     def rental_fragments(html_page)
-     # Nokogiri::HTML(html_page).css('.result-list div.episode-info')
       Nokogiri::HTML(html_page).xpath("//*[contains(@class,'result-list')]//div[contains(@class,'episode-info')][h3/a[not(@class)]]")
     end
 
