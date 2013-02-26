@@ -12,8 +12,8 @@ module Source
       "http://film4od.film4.com/Search/?#{{ 'searchQuery' => query }.to_query}"
     end
 
-    def rental_fragments(html_page)
-      Nokogiri::HTML(html_page).css('.searchResults li.filmResult')
+    def rental_fragments(page)
+      Nokogiri::HTML(page).css('.searchResults li.filmResult')
     end
 
     def rental_title(rental_fragment)

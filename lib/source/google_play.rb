@@ -12,8 +12,8 @@ module Source
       "https://play.google.com/store/search?#{{ 'q' => query, 'c' => 'movies'}.to_query}"
     end
 
-    def rental_fragments(html_page)
-      Nokogiri::HTML(html_page).css('li.search-results-item')
+    def rental_fragments(page)
+      Nokogiri::HTML(page).css('li.search-results-item')
     end
 
     def rental_title(rental_fragment)

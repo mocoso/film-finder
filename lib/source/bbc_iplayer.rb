@@ -12,8 +12,8 @@ module Source
       "http://www.bbc.co.uk/iplayer/search?#{{ 'q' => query }.to_query}"
     end
 
-    def rental_fragments(html_page)
-      Nokogiri::HTML(html_page).xpath("//*[contains(@class,'result-list')]//div[contains(@class,'episode-info')][h3/a[not(@class)]]")
+    def rental_fragments(page)
+      Nokogiri::HTML(page).xpath("//*[contains(@class,'result-list')]//div[contains(@class,'episode-info')][h3/a[not(@class)]]")
     end
 
     def rental_title(rental_fragment)

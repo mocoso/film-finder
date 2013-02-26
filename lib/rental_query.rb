@@ -19,12 +19,12 @@ class RentalQuery
   private
   attr_accessor :query, :source
 
-  def html_page
+  def page
     request.response.body
   end
 
   def rental_fragments
-    source.rental_fragments(html_page)
+    source.rental_fragments(page)
   end
 
   def rental(rental_fragment)

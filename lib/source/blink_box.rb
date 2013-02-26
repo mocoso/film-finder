@@ -12,8 +12,8 @@ module Source
       "http://www.blinkbox.com/Search?#{{ 'Search' => query }.to_query}"
     end
 
-    def rental_fragments(html_page)
-      Nokogiri::HTML(html_page).css('#results li.result')
+    def rental_fragments(page)
+      Nokogiri::HTML(page).css('#results li.result')
     end
 
     def rental_title(rental_fragment)
