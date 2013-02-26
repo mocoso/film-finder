@@ -14,7 +14,7 @@ describe Source::BBCIplayer do
         subject.rental_title(fragment).should == 'Doctor Who: Series 6: The Curse of the Black Spot'
       end
     end
-    
+
     describe '#rental_url' do
       it 'should extract the title from the fragment' do
         subject.rental_url(fragment).should ==
