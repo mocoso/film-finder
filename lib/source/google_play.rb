@@ -29,7 +29,10 @@ module Source
     end
 
     def rental_price(rental_fragment)
-      Price.new(rental_fragment.css('.buy-button-price').first.content.strip)
+      # Note: GooglePlay does not display a rental button for freely available
+      # tv episodes/films
+      buy_button = rental_fragment.css('.buy-button-price').first
+      Price.new(buy_button ? buy_button.content.strip : '')
     end
   end
 end
