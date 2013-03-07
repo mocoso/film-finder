@@ -63,4 +63,10 @@ FilmFinder::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
+  config.middleware.use \
+    ExceptionNotifier,
+    :email_prefix         => "[FilmFinder Exception] ",
+    :sender_address       => ENV['EXCEPTION_NOTIFIER_SENDER'],
+    :exception_recipients => ENV['EXCEPTION_NOTIFIER_RECIPIENTS']
+
 end

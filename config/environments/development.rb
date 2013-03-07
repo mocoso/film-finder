@@ -27,4 +27,10 @@ FilmFinder::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.middleware.use \
+    ExceptionNotifier,
+    :email_prefix => "[FilmFinder Exception] ",
+    :sender_address => %{"notifier" <notifier@example.com>},
+    :exception_recipients => %w{exceptions@example.com}
 end
