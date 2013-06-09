@@ -14,7 +14,7 @@ describe Source::BlinkBox do
         subject.rental_title(fragment).should == 'The Dark Knight'
       end
     end
-    
+
     describe '#rental_url' do
       it 'should extract the title from the fragment' do
         subject.rental_url(fragment).should ==
