@@ -21,7 +21,7 @@ module Source
     end
 
     def rental_url(rental_fragment)
-      rental_fragment.css('h3 a').first.attributes['href'].value
+      "http://www.blinkbox.com#{rental_fragment.css('h3 a').first.attributes['href'].value}"
     end
 
     def rental_image_url(rental_fragment)
@@ -29,7 +29,8 @@ module Source
     end
 
     def rental_price(rental_fragment)
-      Price.new(rental_fragment.css('li.purchase, li.watch').first.content.strip)
+      # BlinkBox don't currently include the price in their search results pages
+      NoPrice.new('To rent')
     end
   end
 end
