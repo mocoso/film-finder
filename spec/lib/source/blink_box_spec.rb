@@ -16,14 +16,14 @@ describe Source::BlinkBox do
     end
 
     describe '#rental_url' do
-      it 'should extract the title from the fragment' do
+      it 'should extract the url from the fragment' do
         subject.rental_url(fragment).should ==
           'http://www.blinkbox.com/Movies/28710/The-Dark-Knight'
       end
     end
 
     describe '#rental_image_url' do
-      it 'should extract the title from the fragment' do
+      it 'should extract the rental image URL from the fragment' do
         subject.rental_image_url(fragment).should ==
           'http://cdn3.blinkboxmedia.com/i/contentasset30/000/028/710/ieoabmeo/v=113/w=180;h=100;rm=Crop;q=95/image.jpg'
       end
