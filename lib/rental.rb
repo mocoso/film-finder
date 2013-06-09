@@ -1,4 +1,6 @@
 class Rental
+  include Comparable
+
   def initialize(attributes)
     @attributes = attributes
   end
@@ -25,6 +27,10 @@ class Rental
 
   def ==(other)
     self.attributes == other.attributes
+  end
+
+  def <=>(other)
+    self.price <=> other.price
   end
 
   protected

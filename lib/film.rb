@@ -3,7 +3,7 @@ class Film
 
   def initialize(title, options)
     @title = title
-    @rentals = options[:rentals].sort_by(&:price)
+    @rentals = options[:rentals].sort
   end
 
   def ==(other)
