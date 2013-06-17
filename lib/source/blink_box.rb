@@ -21,7 +21,10 @@ module Source
     end
 
     def rental_url(rental_fragment)
-      "http://www.blinkbox.com#{rental_fragment.css('h3 a').first.attributes['href'].value}"
+      u = URI.parse(extract_rental_path_or_url(rental_fragment))
+      u.host ||= 'www.blinkbox.com'
+      u.scheme ||= 'http'
+      u.to_s
     end
 
     def rental_image_url(rental_fragment)
@@ -31,6 +34,11 @@ module Source
     def rental_price(rental_fragment)
       # BlinkBox don't currently include the price in their search results pages
       NoPrice.new('To rent')
+    end
+
+    private
+    def extract_rental_path_or_url(rental_fragment)
+      rental_fragment.css('h3 a').first.attributes['href'].value
     end
   end
 end

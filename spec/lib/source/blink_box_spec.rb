@@ -16,9 +16,28 @@ describe Source::BlinkBox do
     end
 
     describe '#rental_url' do
-      it 'should extract the url from the fragment' do
-        subject.rental_url(fragment).should ==
-          'http://www.blinkbox.com/Movies/28710/The-Dark-Knight'
+      context 'fragment contains path' do
+        it 'should extract the url from the fragment' do
+          subject.rental_url(fragment).should ==
+            'http://www.blinkbox.com/Movies/28710/The-Dark-Knight'
+        end
+      end
+
+      context 'fragment contains full URL' do
+        let(:fragment) do
+          Nokogiri::HTML(%q{
+<li class="result">
+        <h3>
+    <a href="http://www.blinkbox.com/TV/Series/1024/Game-of-Thrones">Game of Thrones</a>
+</h3>
+<!-- and the rest... -->
+</li>})
+        end
+
+        it 'should extract the url from the fragment' do
+          subject.rental_url(fragment).should ==
+            'http://www.blinkbox.com/TV/Series/1024/Game-of-Thrones'
+        end
       end
     end
 
