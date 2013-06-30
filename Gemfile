@@ -22,6 +22,7 @@ end
 
 group :production do
   gem 'newrelic_rpm'
+  gem 'rails_12factor' # For Heroku (logging and assets), see https://devcenter.heroku.com/articles/rails4
 end
 
 group :development, :test do
