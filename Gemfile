@@ -29,4 +29,5 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'vcr'
+  gem 'bundler-audit'
 end
