@@ -1,3 +1,10 @@
 language: ruby
 rvm:
 - 2.0.0
+deploy:
+  provider: heroku
+  api_key:
+    secure: pJAX/15xzA0Nj2tjrLXyldED+bsncJ92ylBkHYh4bWF7uffdTLiIcUjkHkRBoTW+I6UTlenCSPINE7lYDKJKUHgfADA00xRqdDuBdj2RRLy1nLChswErkbYeq19ojuOeEdzM6h+TMoeiPeWKeE5/aynhC9TfOWzhYg8zpXAl/Yw=
+  app: film-finder
+  on:
+    repo: mocoso/film-finder
