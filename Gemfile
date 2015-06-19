@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.1.6'
 
-gem 'rails', '~> 4.0.2'
+gem 'rails', '~> 4.1.11'
 
 gem 'nokogiri'
 gem 'typhoeus'
