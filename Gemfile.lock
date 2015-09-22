@@ -138,3 +138,6 @@ DEPENDENCIES
   uglifier (>= 1.0.3)
   unicorn
   vcr
+
+BUNDLED WITH
+   1.10.5
