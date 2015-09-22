@@ -120,7 +120,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    vcr (2.4.0)
+    vcr (2.9.3)
 
 PLATFORMS
   ruby
