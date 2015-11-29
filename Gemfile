@@ -4,7 +4,7 @@ ruby '2.1.6'
 
 gem 'rails', '~> 4.2.4'
 
-gem 'nokogiri'
+gem 'nokogiri', '>= 1.6.6.4'
 gem 'typhoeus'
 gem 'bootstrap-sass'
 gem 'exception_notification', '>= 4.0'
