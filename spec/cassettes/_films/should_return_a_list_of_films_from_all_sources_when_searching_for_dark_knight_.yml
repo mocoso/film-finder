@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://www.blinkbox.com/Search?Search=dark+knight
+    uri: http://www.blinkbox.com/search?Search=dark+knight
     body:
       encoding: UTF-8
       string: ''

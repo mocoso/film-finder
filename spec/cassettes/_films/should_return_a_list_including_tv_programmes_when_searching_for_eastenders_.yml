@@ -2520,7 +2520,7 @@ http_interactions:
   recorded_at: Sun, 03 Feb 2013 00:14:55 GMT
 - request:
     method: get
-    uri: http://www.blinkbox.com/Search?Search=eastenders
+    uri: http://www.blinkbox.com/search?Search=eastenders
     body:
       encoding: US-ASCII
       string: ''

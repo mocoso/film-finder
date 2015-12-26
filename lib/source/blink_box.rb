@@ -9,7 +9,7 @@ module Source
     end
 
     def search_url(query)
-      "http://www.blinkbox.com/Search?#{{ 'Search' => query }.to_query}"
+      "http://www.blinkbox.com/search?#{{ 'Search' => query }.to_query}"
     end
 
     def rental_fragments(page)

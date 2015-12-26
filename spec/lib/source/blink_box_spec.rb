@@ -4,7 +4,7 @@ describe Source::BlinkBox do
   describe '#search_url' do
     specify do
       subject.search_url('dark knight').should ==
-        'http://www.blinkbox.com/Search?Search=dark+knight'
+        'http://www.blinkbox.com/search?Search=dark+knight'
     end
   end
 
