@@ -21,6 +21,6 @@ describe FilmQuery
 
     it "should return a list including tv programmes when searching for
 'eastenders'" do
-      FilmQuery.new('eastenders').films.include?(eastenders).should be_true
+      FilmQuery.new('eastenders').films.include?(eastenders).should be_truthy
   end
 end
