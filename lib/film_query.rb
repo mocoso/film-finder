@@ -27,17 +27,25 @@ class FilmQuery
       sort_by { |f| [f.number_of_words_matching_query(query), f.rentals.size] }.reverse # Prioritize those which are returned by multiple services
   end
 
+  def unavailable_sources
+    trigger_rental_query_requests
+    rental_queries.select(&:error?).map(&:source)
+  end
+
   private
   attr_accessor :query, :hydra
 
   def rentals
-    unless @rentals
+    trigger_rental_query_requests
+    rental_queries.map(&:rentals).flatten
+  end
+
+  def trigger_rental_query_requests
+    unless @rental_requeste_triggered
       rental_queries.each { |s| self.class.hydra.queue(s.request) }
       self.class.hydra.run
-      @rentals = rental_queries.map(&:rentals).flatten
+      @rental_requests_triggered = true
     end
-
-    @rentals
   end
 
   def rental_queries

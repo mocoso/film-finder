@@ -1,4 +1,6 @@
 class RentalQuery
+  attr_reader :source
+
   def initialize(query, source)
     self.query = query
     self.source = source
@@ -16,8 +18,14 @@ class RentalQuery
       :proxy => ENV['HTTP_PROXY']
   end
 
+  def error?
+    !request.response.success?
+  end
+
+
   private
-  attr_accessor :query, :source
+  attr_writer :source
+  attr_accessor :query
 
   def page
     request.response.body
