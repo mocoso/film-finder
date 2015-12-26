@@ -8,7 +8,6 @@ class FilmQuery
       @@sources ||= [
         Source::BBCIplayer.new,
         Source::BlinkBox.new,
-        Source::Film4oD.new,
         Source::GooglePlay.new,
         Source::Itunes.new
       ]

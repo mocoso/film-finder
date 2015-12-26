@@ -20,15 +20,6 @@ describe FilmQuery
         :price      => Price.new('From £2.49')
     }
 
-    let(:the_dark_knight_film4o_d) {
-      Rental.new \
-        :service    => 'Film4oD',
-        :title      => 'The Dark Knight',
-        :url        => 'http://film4od.film4.com/Films/D/The-Dark-Knight/',
-        :image_url  => 'http://onlinemovies-cache.virginmedia.com/Images/2012/6/6/portrait130x184/FF-00109368-IM-01portrait130x184.png',
-        :price      => Price.new('£2.75')
-    }
-
     let(:the_dark_knight_blink_box) {
       Rental.new \
         :service    => 'BlinkBox',
@@ -44,7 +35,6 @@ describe FilmQuery
         :rentals => [
           the_dark_knight_1_google_play,
           the_dark_knight_2_google_play,
-          the_dark_knight_film4o_d,
           the_dark_knight_blink_box
         ]
     }
