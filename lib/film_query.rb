@@ -6,8 +6,6 @@ class FilmQuery
 
     def sources
       @@sources ||= [
-        Source::BBCIplayer.new,
-        Source::BlinkBox.new,
         Source::GooglePlay.new,
         Source::Itunes.new
       ]
