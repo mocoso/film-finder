@@ -10,6 +10,8 @@ gem 'exception_notification', '>= 4.0'
 
 gem 'itunes-search-api'
 gem 'google_play_search', '>= 0.0.17'
+gem 'blinkbox_films',
+  :git => 'https://github.com/mocoso/blinkbox_films.git'
 
 # Gems used only for assets and not required
 # in production environments by default.

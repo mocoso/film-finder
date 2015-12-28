@@ -1,6 +1,6 @@
 GIT
-  remote: git@github.com:mocoso/blinkbox_films.git
-  revision: 5415d57c462fb5e16ea6a800f59ec0ded211b0d9
+  remote: https://github.com/mocoso/blinkbox_films.git
+  revision: e1f9c0362270fbd83a88ea163999e305cd394fff
   specs:
     blinkbox_films (0.0.0)
       nokogiri (~> 1.6)
@@ -161,6 +161,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  blinkbox_films!
   bootstrap-sass
   exception_notification (>= 4.0)
   google_play_search (>= 0.0.17)

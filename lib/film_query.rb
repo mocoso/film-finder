@@ -2,6 +2,7 @@ class FilmQuery
   class << self
     def sources
       @@sources ||= [
+        Source::Blinkbox.new,
         Source::GooglePlay.new,
         Source::Itunes.new
       ]
