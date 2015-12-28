@@ -5,6 +5,15 @@ GIT
     blinkbox_films (0.0.0)
       nokogiri (~> 1.6)
 
+GIT
+  remote: https://github.com/mocoso/google_play_search.git
+  revision: a824391f865e58541f1d6d17d2401c8c94b136f2
+  branch: use-net-http
+  specs:
+    google_play_search (0.0.17)
+      httpclient (~> 2.7)
+      nokogiri (~> 1.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -55,12 +64,11 @@ GEM
     execjs (2.6.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
-    google_play_search (0.0.17)
-      nokogiri (~> 1.5)
     hike (1.2.3)
     httparty (0.13.7)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
+    httpclient (2.7.0.1)
     i18n (0.7.0)
     itunes-search-api (0.1.0)
       httparty
@@ -164,7 +172,7 @@ DEPENDENCIES
   blinkbox_films!
   bootstrap-sass
   exception_notification (>= 4.0)
-  google_play_search (>= 0.0.17)
+  google_play_search (>= 0.0.17)!
   itunes-search-api
   newrelic_rpm
   nokogiri (>= 1.6.6.4)
