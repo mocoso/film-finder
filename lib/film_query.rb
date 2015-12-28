@@ -1,9 +1,5 @@
 class FilmQuery
   class << self
-    def hydra
-      @@hydra ||= Typhoeus::Hydra.new
-    end
-
     def sources
       @@sources ||= [
         Source::GooglePlay.new,
@@ -25,30 +21,13 @@ class FilmQuery
   end
 
   def unavailable_sources
-    trigger_rental_query_requests
-    rental_queries.select(&:error?).map(&:source)
+    []
   end
 
   private
-  attr_accessor :query, :hydra
+  attr_accessor :query
 
   def rentals
-    trigger_rental_query_requests
-    rental_queries.map(&:rentals).flatten
-  end
-
-  def trigger_rental_query_requests
-    unless @rental_requeste_triggered
-      rental_queries.each { |s| self.class.hydra.queue(s.request) }
-      self.class.hydra.run
-      @rental_requests_triggered = true
-    end
-  end
-
-  def rental_queries
-    @rental_queries ||= self.
-      class.
-      sources.
-      map { |source| RentalQuery.new query, source }
+    self.class.sources.map { |s| s.search(query) }.flatten
   end
 end

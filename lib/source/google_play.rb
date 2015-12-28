@@ -8,6 +8,10 @@ module Source
       'https://play.google.com/store/movies'
     end
 
+    def search(query)
+      []
+    end
+
     def search_url(query)
       "https://play.google.com/store/search?#{{ 'q' => query, 'c' => 'movies'}.to_query}"
     end

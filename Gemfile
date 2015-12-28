@@ -5,9 +5,10 @@ ruby '2.2.4'
 gem 'rails', '~> 4.2.4'
 
 gem 'nokogiri', '>= 1.6.6.4'
-gem 'typhoeus'
 gem 'bootstrap-sass'
 gem 'exception_notification', '>= 4.0'
+
+gem 'itunes-search-api'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -28,5 +29,4 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'vcr'
 end
