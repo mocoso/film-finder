@@ -19,7 +19,7 @@ module Source
           :title => result['trackCensoredName'],
           :url => result['trackViewUrl'],
           :image_url => result['artworkUrl100'],
-          :price => Price.new("£#{result['trackPrice']}")
+          :price => price_for_result(result)
       }
     end
 
@@ -30,6 +30,14 @@ module Source
 
     def film_and_tv_results(query)
       raw_results(query).select { |f| FILM_AND_TV_KINDS.include? f['kind'] }
+    end
+
+    def price_for_result(result)
+      if result['trackRentalPrice']
+        Price.new("£#{result['trackRentalPrice']}")
+      elsif result['trackPrice']
+        Price.new("£#{result['trackPrice']}")
+      end
     end
   end
 end
