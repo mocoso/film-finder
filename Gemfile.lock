@@ -1,3 +1,10 @@
+GIT
+  remote: git@github.com:mocoso/blinkbox_films.git
+  revision: 5415d57c462fb5e16ea6a800f59ec0ded211b0d9
+  specs:
+    blinkbox_films (0.0.0)
+      nokogiri (~> 1.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -48,6 +55,8 @@ GEM
     execjs (2.6.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    google_play_search (0.0.17)
+      nokogiri (~> 1.5)
     hike (1.2.3)
     httparty (0.13.7)
       json (~> 1.8)
@@ -154,6 +163,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   exception_notification (>= 4.0)
+  google_play_search (>= 0.0.17)
   itunes-search-api
   newrelic_rpm
   nokogiri (>= 1.6.6.4)

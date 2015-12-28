@@ -9,6 +9,7 @@ gem 'bootstrap-sass'
 gem 'exception_notification', '>= 4.0'
 
 gem 'itunes-search-api'
+gem 'google_play_search', '>= 0.0.17'
 
 # Gems used only for assets and not required
 # in production environments by default.
