@@ -87,6 +87,7 @@ GEM
     newrelic_rpm (3.13.1.300)
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
+    parallel (1.6.1)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -176,6 +177,7 @@ DEPENDENCIES
   itunes-search-api!
   newrelic_rpm
   nokogiri (>= 1.6.6.4)
+  parallel
   rails (~> 4.2.4)
   rails_12factor
   rspec-rails

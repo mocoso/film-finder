@@ -36,18 +36,16 @@ class FilmQuery
   end
 
   def fetch
-    rentals = []
-    unavailable_sources = []
-    self.class.sources.each do |source|
+    results = Parallel.map(self.class.sources, :in_threads => self.class.sources.size) do |source|
       begin
-        rentals+= source.search(query)
+        [source.search(query), nil]
       rescue StandardError => e
-        unavailable_sources << source
         Rails.logger.error("Failed to query #{source} because of exception #{e}")
+        [[], source]
       end
     end
-    self.rentals = rentals
-    self.unavailable_sources = unavailable_sources
+    self.rentals = results.map { |r| r.first }.flatten
+    self.unavailable_sources = results.map { |r| r.last }.reject(&:nil?)
     @fetched = true
   end
 end
