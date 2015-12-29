@@ -27,6 +27,33 @@ h1 small {
   color: #666666;
 }
 
+form {
+  margin: 2em 0 2em 0;
+}
+
+input, button {
+  font-size: 1.5em;
+  border: 2px solid #225522;
+  padding: 0.1em 0.5em 0.1em 0.5em;
+}
+
+button {
+  background: #225522;
+  color: white;
+  padding: 0.1em 0.5em 0.1em 0.5em;
+  border-top-right-radius: 0.3em;
+  border-bottom-right-radius: 0.3em;
+}
+
+input {
+  border-top-left-radius: 0.3em;
+  border-bottom-left-radius: 0.3em;
+}
+
+button:hover {
+  background: #447744;
+}
+
 h2 {
   margin-top: 2em;
 }
