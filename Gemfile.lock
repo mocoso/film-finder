@@ -1,8 +1,9 @@
 GIT
   remote: https://github.com/mocoso/blinkbox_films.git
-  revision: e1f9c0362270fbd83a88ea163999e305cd394fff
+  revision: f8aae3b6bf4da725317b71bfcffceca77e746a2f
   specs:
     blinkbox_films (0.0.0)
+      httpclient (~> 2.7)
       nokogiri (~> 1.6)
 
 GIT
