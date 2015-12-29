@@ -1,12 +1,8 @@
-<div class="page-header">
-  <h1>Find a film <small>to watch online in the UK</small></h1>
-</div>
+<h1>Find a film <small>to watch online in the UK</small></h1>
 
 <%= form_tag '/', :method => :get do %>
-  <div class="input-append">
-    <%= text_field_tag :query, params[:query], :placeholder => 'Film or TV series title' %>
-    <%= button_tag 'Find Film', :class => 'btn btn-primary' %>
-  </div>
+  <%= text_field_tag :query, params[:query], :placeholder => 'Film or TV series title' %>
+  <%= button_tag 'Find Film' %>
 <% end %>
 
 <p>Searches <%= FilmQuery.sources.map { |s| link_to s.name, s.url
@@ -21,18 +17,16 @@
 
   <% if films.present? %>
     <h2>Films or TV series matching '<%= params[:query] %>'</h2>
-    <ol class="unstyled">
+    <ol>
       <% films.each do |film| %>
         <li>
           <h3><%= film.title %></h3>
-          <ul class="thumbnails">
+          <ul>
             <% film.rentals.each do |rental| %>
-              <li class="span2">
-                <div class="thumbnail">
-                  <h4><%= link_to rental.price, rental.url %></h4>
-                  <p><%= link_to rental.service, rental.url %></p>
-                  <%= link_to rental.url do %><%= image_tag rental.image_url, :alt => rental.title %><% end %>
-                </div>
+              <li>
+                <h4><%= link_to rental.price, rental.url %></h4>
+                <p><%= link_to rental.service, rental.url %></p>
+                <%= link_to rental.url do %><%= image_tag rental.image_url, :alt => rental.title %><% end %>
               </li>
             <% end %>
           </ul>

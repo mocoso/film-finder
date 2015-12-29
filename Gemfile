@@ -5,7 +5,6 @@ ruby '2.2.4'
 gem 'rails', '~> 4.2.4'
 
 gem 'nokogiri', '>= 1.6.6.4'
-gem 'bootstrap-sass'
 gem 'exception_notification', '>= 4.0'
 
 gem 'itunes-search-api',
