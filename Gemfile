@@ -8,7 +8,9 @@ gem 'nokogiri', '>= 1.6.6.4'
 gem 'bootstrap-sass'
 gem 'exception_notification', '>= 4.0'
 
-gem 'itunes-search-api'
+gem 'itunes-search-api',
+  :git => 'https://github.com/mocoso/itunes-search-api.git',
+  :branch => 'use-http-client'
 gem 'google_play_search', '>= 0.0.17',
   :git => 'https://github.com/mocoso/google_play_search.git',
   :branch => 'use-net-http'
