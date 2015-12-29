@@ -13,7 +13,7 @@ module Source
     end
 
     def search(query)
-      film_and_tv_results(query).map { |result|
+      film_and_tv_available_to_rent_results(query).map { |result|
         Rental.new \
           :service => name,
           :title => result['trackCensoredName'],
@@ -30,6 +30,10 @@ module Source
 
     def film_and_tv_results(query)
       raw_results(query).select { |f| FILM_AND_TV_KINDS.include? f['kind'] }
+    end
+
+    def film_and_tv_available_to_rent_results(query)
+      film_and_tv_results(query).reject { |r| price_for_result(r).nil? }
     end
 
     def price_for_result(result)
