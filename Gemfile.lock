@@ -1,12 +1,4 @@
 GIT
-  remote: https://github.com/mocoso/blinkbox_films.git
-  revision: f8aae3b6bf4da725317b71bfcffceca77e746a2f
-  specs:
-    blinkbox_films (0.0.0)
-      httpclient (~> 2.7)
-      nokogiri (~> 1.6)
-
-GIT
   remote: https://github.com/mocoso/google_play_search.git
   revision: a824391f865e58541f1d6d17d2401c8c94b136f2
   branch: use-net-http
@@ -62,6 +54,9 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
+    blinkbox_films (0.0.1)
+      httpclient (~> 2.7)
+      nokogiri (~> 1.6)
     builder (3.2.2)
     coderay (1.1.0)
     diff-lcs (1.2.5)
@@ -178,7 +173,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  blinkbox_films!
+  blinkbox_films
   exception_notification (>= 4.0)
   google_play_search (>= 0.0.17)!
   itunes-search-api!
