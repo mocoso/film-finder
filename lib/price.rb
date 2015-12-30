@@ -13,10 +13,6 @@ class Price
     in_pence <=> other.in_pence
   end
 
-  def display?
-    true
-  end
-
   protected
   def in_pence
     if match = to_s.match(/£(\d+\.\d*)/)

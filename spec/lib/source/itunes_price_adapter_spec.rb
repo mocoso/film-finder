@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Source::ItunesPriceAdapter do
-  describe '#price' do
+  describe '#prices' do
     let(:rental_price) { '2.99' }
     let(:purchase_price) { '4.99' }
 
@@ -12,15 +12,20 @@ describe Source::ItunesPriceAdapter do
       )
     }
 
-    it 'should return rental price' do
-      subject.price.should == Price.new('From £2.99')
+    it 'should return purchase and rental price' do
+      subject.prices.should == [
+        Price.new('Rent from £2.99'),
+        Price.new('Buy from £4.99')
+      ]
     end
 
     context 'when it is not available to rent' do
       let(:rental_price) { nil }
 
       it 'should return the purchase price' do
-        subject.price.should == Price.new('From £4.99')
+        subject.prices.should == [
+          Price.new('Buy from £4.99')
+        ]
       end
     end
   end

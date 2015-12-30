@@ -19,9 +19,9 @@ module Source
           :title => result['trackCensoredName'],
           :url => result['trackViewUrl'],
           :image_url => result['artworkUrl100'],
-          :price => ItunesPriceAdapter.new(result).price
+          :prices => ItunesPriceAdapter.new(result).prices
       }.reject { |r|
-        r.price.nil?
+        r.prices.empty?
       }
     end
 

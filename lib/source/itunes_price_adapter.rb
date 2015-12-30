@@ -4,12 +4,16 @@ module Source
       self.result = result
     end
 
-    def price
+    def prices
+      prices = []
       if result['trackRentalPrice']
-        Price.new("From £#{result['trackRentalPrice']}")
-      elsif result['trackPrice']
-        Price.new("From £#{result['trackPrice']}")
+        prices << Price.new("Rent from £#{result['trackRentalPrice']}")
       end
+
+      if result['trackPrice']
+        prices << Price.new("Buy from £#{result['trackPrice']}")
+      end
+      prices
     end
 
     private

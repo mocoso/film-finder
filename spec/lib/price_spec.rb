@@ -5,10 +5,6 @@ describe Price do
     specify { Price.new('From £3.99').to_s.should == 'From £3.99' }
   end
 
-  describe '#display?' do
-    specify { Price.new('£3.99').display?.should == true }
-  end
-
   describe '#<=>' do
     let(:high)        { Price.new('From £3.99') }
     let(:low)         { Price.new('Rent for £2.49') }

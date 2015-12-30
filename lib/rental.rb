@@ -17,8 +17,8 @@ class Rental
     attributes[:service]
   end
 
-  def price
-    attributes[:price]
+  def prices
+    attributes[:prices] || []
   end
 
   def image_url
@@ -30,16 +30,16 @@ class Rental
   end
 
   def <=>(other)
-    if self.price.is_a? NoPrice
-      if other.price.is_a? NoPrice
+    if self.prices.empty?
+      if other.prices.empty?
         0
       else
         1
       end
-    elsif other.price.is_a? NoPrice
+    elsif other.prices.empty?
       -1
     else
-      self.price <=> other.price
+      self.prices.sort <=> other.prices.sort
     end
   end
 

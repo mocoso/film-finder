@@ -21,13 +21,17 @@
       <% films.each do |film| %>
         <li>
           <h3><%= film.title %></h3>
-          <ul>
+          <ul class="rentals">
             <% film.rentals.each do |rental| %>
-              <li>
+              <li class="rental">
                 <h4><%= link_to rental.service, rental.url %></h4>
                 <%= link_to rental.url do %><%= image_tag rental.image_url, :alt => rental.title %><% end %>
-                <% if rental.price.display? %>
-                  <p><%= rental.price %></p>
+                <% if rental.prices %>
+                  <ol>
+                    <% rental.prices.each do |price| %>
+                      <li><%= price %></li>
+                    <% end %>
+                  </ol>
                 <% end %>
               </li>
             <% end %>
