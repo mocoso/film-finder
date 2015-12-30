@@ -7,12 +7,21 @@ module Source
     def prices
       prices = []
       if result['trackRentalPrice']
-        prices << Price.new("Rent from £#{result['trackRentalPrice']}")
+        prices << Price.new("Rent SD £#{result['trackRentalPrice']}")
+      end
+
+      if result['trackHdRentalPrice']
+        prices << Price.new("Rent HD £#{result['trackHdRentalPrice']}")
       end
 
       if result['trackPrice']
-        prices << Price.new("Buy from £#{result['trackPrice']}")
+        prices << Price.new("Buy SD £#{result['trackPrice']}")
       end
+
+      if result['trackHdPrice']
+        prices << Price.new("Buy HD £#{result['trackHdPrice']}")
+      end
+
       prices
     end
 
