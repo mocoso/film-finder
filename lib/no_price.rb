@@ -7,6 +7,10 @@ class NoPrice
     description
   end
 
+  def display?
+    false
+  end
+
   def ==(other)
     self.description == other.description
   end

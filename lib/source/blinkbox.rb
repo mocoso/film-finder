@@ -17,7 +17,7 @@ module Source
           :title => result[:title],
           :url => result[:url],
           :image_url => result[:image_url],
-          :price => NoPrice.new('Not known')
+          :price => NoPrice.new('Not available from Blinkbox')
       }
     end
   end

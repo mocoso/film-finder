@@ -26,7 +26,9 @@
               <li>
                 <h4><%= link_to rental.service, rental.url %></h4>
                 <%= link_to rental.url do %><%= image_tag rental.image_url, :alt => rental.title %><% end %>
-                <p><%= rental.price %></p>
+                <% if rental.price.display? %>
+                  <p><%= rental.price %></p>
+                <% end %>
               </li>
             <% end %>
           </ul>
