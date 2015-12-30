@@ -37,7 +37,7 @@ class FilmQuery
   def fetch
     results = Parallel.map(self.class.sources, :in_threads => self.class.sources.size) do |source|
       begin
-        [source.search(query), nil]
+        [source.search(query).take(10), nil]
       rescue StandardError => e
         Rails.logger.error("Failed to query #{source} because of exception #{e}")
         [[], source]
