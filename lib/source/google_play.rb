@@ -17,7 +17,7 @@ module Source
           :title => result.name,
           :url => result.url,
           :image_url => result.logo_url,
-          :price => Price.new(result.price)
+          :price => Price.new("From #{result.price}")
       }
     end
 

@@ -38,9 +38,9 @@ module Source
 
     def price_for_result(result)
       if result['trackRentalPrice']
-        Price.new("£#{result['trackRentalPrice']}")
+        Price.new("From £#{result['trackRentalPrice']}")
       elsif result['trackPrice']
-        Price.new("£#{result['trackPrice']}")
+        Price.new("From £#{result['trackPrice']}")
       end
     end
   end
