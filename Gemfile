@@ -16,6 +16,7 @@ gem 'google_play_search', '>= 0.0.17',
   :branch => 'use-net-http'
 
 gem 'blinkbox_films'
+gem 'vacuum'
 
 # Gems used only for assets and not required
 # in production environments by default.

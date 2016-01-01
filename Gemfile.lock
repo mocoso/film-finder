@@ -68,12 +68,15 @@ GEM
     exception_notification (4.1.1)
       actionmailer (>= 3.0.4)
       activesupport (>= 3.0.4)
+    excon (0.45.4)
     execjs (2.6.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hike (1.2.3)
     httpclient (2.7.0.1)
     i18n (0.7.0)
+    jeff (1.5.1)
+      excon (>= 0.22.1)
     json (1.8.3)
     kgio (2.9.3)
     loofah (2.0.3)
@@ -85,6 +88,7 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.8.3)
     multi_json (1.11.2)
+    multi_xml (0.5.5)
     newrelic_rpm (3.13.1.300)
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
@@ -172,6 +176,9 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    vacuum (1.4.0)
+      jeff (~> 1.0)
+      multi_xml (~> 0.5.0)
 
 PLATFORMS
   ruby
@@ -192,6 +199,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   uglifier (>= 2.7.2)
   unicorn
+  vacuum
 
 BUNDLED WITH
    1.11.2
