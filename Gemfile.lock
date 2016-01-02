@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/mocoso/bbc_iplayer_search.git
+  revision: 1b484110f0897baaab1ddf5181624c70d9614c92
+  specs:
+    bbc_iplayer_search (0.0.0)
+      httpclient (~> 2.7)
+      nokogiri (~> 1.6)
+
+GIT
   remote: https://github.com/mocoso/itunes-search-api.git
   revision: c9068e0625ebf71bf3d619b1ec5a74b874e4f595
   branch: use-http-client
@@ -67,7 +75,7 @@ GEM
       httpclient (~> 2.7)
       nokogiri (~> 1.5)
     hike (1.2.3)
-    httpclient (2.7.0.1)
+    httpclient (2.7.1)
     i18n (0.7.0)
     jeff (1.5.1)
       excon (>= 0.22.1)
@@ -178,6 +186,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bbc_iplayer_search!
   blinkbox_films
   dotenv-rails
   exception_notification (>= 4.0)
