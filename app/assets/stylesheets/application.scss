@@ -59,7 +59,10 @@ h2 {
 }
 
 img {
-  height: 150px;
+  object-fit: cover;
+  object-position: center;
+  height: 160px;
+  width: 125px;
 }
 
 ul, ol {
@@ -75,7 +78,7 @@ li {
 
 li.rental {
   float: left;
-  max-width: 250px;
+  max-width: 125px;
   margin: 0 2em 0 0;
 }
 
