@@ -40,7 +40,7 @@ class FilmQuery
       begin
         [source.search(query).take(10), nil]
       rescue StandardError => e
-        Rails.logger.error("Failed to query #{source} because of exception #{e}")
+        Rails.logger.error("Failed to query #{source} because of exception #{e}\n#{e.backtrace}")
         [[], source]
       end
     end
