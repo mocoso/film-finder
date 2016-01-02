@@ -1,13 +1,4 @@
 GIT
-  remote: https://github.com/mocoso/google_play_search.git
-  revision: a824391f865e58541f1d6d17d2401c8c94b136f2
-  branch: use-net-http
-  specs:
-    google_play_search (0.0.17)
-      httpclient (~> 2.7)
-      nokogiri (~> 1.5)
-
-GIT
   remote: https://github.com/mocoso/itunes-search-api.git
   revision: c9068e0625ebf71bf3d619b1ec5a74b874e4f595
   branch: use-http-client
@@ -72,6 +63,9 @@ GEM
     execjs (2.6.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    google_play_search (0.0.19)
+      httpclient (~> 2.7)
+      nokogiri (~> 1.5)
     hike (1.2.3)
     httpclient (2.7.0.1)
     i18n (0.7.0)
@@ -187,7 +181,7 @@ DEPENDENCIES
   blinkbox_films
   dotenv-rails
   exception_notification (>= 4.0)
-  google_play_search (>= 0.0.17)!
+  google_play_search (>= 0.0.19)
   itunes-search-api!
   newrelic_rpm
   nokogiri (>= 1.6.6.4)

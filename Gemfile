@@ -11,10 +11,7 @@ gem 'parallel'
 gem 'itunes-search-api',
   :git => 'https://github.com/mocoso/itunes-search-api.git',
   :branch => 'use-http-client'
-gem 'google_play_search', '>= 0.0.17',
-  :git => 'https://github.com/mocoso/google_play_search.git',
-  :branch => 'use-net-http'
-
+gem 'google_play_search', '>= 0.0.19'
 gem 'blinkbox_films'
 gem 'vacuum'
 
