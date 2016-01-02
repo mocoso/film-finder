@@ -25,7 +25,11 @@
             <% film.rentals.each do |rental| %>
               <li class="rental">
                 <h4><%= link_to rental.service, rental.url %></h4>
-                <%= link_to rental.url do %><%= image_tag rental.image_url, :alt => rental.title %><% end %>
+                <%= link_to rental.url do %>
+                  <% if rental.image_url.present? %>
+                    <%= image_tag rental.image_url, :alt => rental.title %>
+                  <% end %>
+                <% end %>
                 <% if rental.prices %>
                   <ol>
                     <% rental.prices.each do |price| %>
