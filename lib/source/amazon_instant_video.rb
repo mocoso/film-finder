@@ -13,7 +13,7 @@ module Source
       raw_results(query).map do |result|
         Rental.new \
           :service => name,
-          :title => result['ItemAttributes']['Title'],
+          :title => Title.new(result['ItemAttributes']['Title']),
           :url => result['DetailPageURL']
       end
     end

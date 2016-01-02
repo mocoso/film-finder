@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Film do
   describe 'number_of_words_matching_query' do
-    subject { Film.new('X-men and Batman: The Dark Knight Returns Part 1', :rentals => []) }
+    subject { Film.new(Title.new('X-men and Batman: The Dark Knight Returns Part 1'), :rentals => []) }
 
     it 'should match words even if they are different case and punctuation' do
       subject.number_of_words_matching_query('batman knight').should == 2

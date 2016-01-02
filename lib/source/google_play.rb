@@ -14,7 +14,7 @@ module Source
       available_to_rent_results(query).map { |result|
         Rental.new \
           :service => name,
-          :title => result.name,
+          :title => Title.new(result.name),
           :url => result.url,
           :image_url => result.logo_url,
           :prices => [Price.new("From #{result.price}")]

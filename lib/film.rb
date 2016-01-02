@@ -11,11 +11,12 @@ class Film
   end
 
   def number_of_words_matching_query(query)
-    (split_into_normalized_words(title) & split_into_normalized_words(query)).size
+    (split_into_normalized_words(title) &
+      split_into_normalized_words(Title.new(query))).size
   end
 
   private
   def split_into_normalized_words(string)
-    string.downcase.gsub('-', '').split(/\W/).reject(&:blank?)
+    string.normalised.split(/\W/)
   end
 end

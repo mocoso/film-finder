@@ -16,7 +16,7 @@ module Source
       film_and_tv_results(query).map { |result|
         Rental.new \
           :service => name,
-          :title => result['trackCensoredName'],
+          :title => Title.new(result['trackCensoredName']),
           :url => result['trackViewUrl'],
           :image_url => result['artworkUrl100'],
           :prices => ItunesPriceAdapter.new(result).prices

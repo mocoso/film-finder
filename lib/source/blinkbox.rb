@@ -14,7 +14,7 @@ module Source
       BlinkboxFilms::Search.new.search(query).map { |result|
         Rental.new \
           :service => name,
-          :title => result[:title],
+          :title => Title.new(result[:title]),
           :url => result[:url],
           :image_url => result[:image_url]
       }

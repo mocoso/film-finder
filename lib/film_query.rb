@@ -17,7 +17,7 @@ class FilmQuery
   def films
     fetch unless fetched?
     rentals.
-      group_by { |sr| sr.title.downcase }.
+      group_by { |sr| sr.title.normalised }.
       map { |f| Film.new(f.last.first.title, :rentals => f.last) }.
       sort_by { |f| [f.rentals.size, f.number_of_words_matching_query(query)] }.reverse # Prioritize those which are returned by multiple services
   end
