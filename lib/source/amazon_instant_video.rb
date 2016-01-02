@@ -10,11 +10,12 @@ module Source
     end
 
     def search(query)
-      raw_results(query).map do |result|
+      raw_results(query).each_with_index.map do |result, i|
         Rental.new \
           :service => name,
           :title => Title.new(result['ItemAttributes']['Title']),
-          :url => result['DetailPageURL']
+          :url => result['DetailPageURL'],
+          :search_rank => i
       end
     end
 

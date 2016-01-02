@@ -11,13 +11,14 @@ module Source
     end
 
     def search(query)
-      available_to_rent_results(query).map { |result|
+      available_to_rent_results(query).each_with_index.map { |result, i|
         Rental.new \
           :service => name,
           :title => Title.new(result.name),
           :url => result.url,
           :image_url => result.logo_url,
-          :prices => [Price.new("From #{result.price}")]
+          :prices => [Price.new("From #{result.price}")],
+          :search_rank => i
       }
     end
 

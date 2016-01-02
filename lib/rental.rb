@@ -25,6 +25,10 @@ class Rental
     attributes[:image_url]
   end
 
+  def search_rank
+    attributes[:search_rank]
+  end
+
   def ==(other)
     self.attributes == other.attributes
   end

@@ -9,14 +9,4 @@ class Film
   def ==(other)
     title == other.title && rentals == other.rentals
   end
-
-  def number_of_words_matching_query(query)
-    (split_into_normalized_words(title) &
-      split_into_normalized_words(Title.new(query))).size
-  end
-
-  private
-  def split_into_normalized_words(string)
-    string.normalised.split(/\W/)
-  end
 end

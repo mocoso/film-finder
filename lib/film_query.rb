@@ -1,4 +1,6 @@
 class FilmQuery
+  RESULTS_PER_SOURCE = 10
+
   class << self
     def sources
       @@sources ||= [
@@ -20,7 +22,7 @@ class FilmQuery
     rentals.
       group_by { |sr| sr.title.normalised }.
       map { |f| Film.new(f.last.first.title, :rentals => f.last) }.
-      sort_by { |f| [f.rentals.size, f.number_of_words_matching_query(query)] }.reverse # Prioritize those which are returned by multiple services
+      sort_by { |f| ((self.class.sources.size - f.rentals.size) * RESULTS_PER_SOURCE * 1.5) + f.rentals.sum(&:search_rank) } # Prioritize those which are most highly ranked in source searches
   end
 
   def unavailable_sources
@@ -39,7 +41,7 @@ class FilmQuery
   def fetch
     results = Parallel.map(self.class.sources, :in_threads => self.class.sources.size) do |source|
       begin
-        [source.search(query).take(10), nil]
+        [source.search(query).take(RESULTS_PER_SOURCE), nil]
       rescue StandardError => e
         Rails.logger.error("Failed to query #{source} because of exception #{e}\n#{e.backtrace}")
         [[], source]

@@ -9,13 +9,14 @@ module Source
     end
 
     def search(query)
-      available_results(query).map { |result|
+      available_results(query).each_with_index.map { |result, i|
         Rental.new \
           :service => name,
           :title => Title.new(result[:title]),
           :url => result[:url],
           :image_url => result[:image_url],
-          :prices => [Price.new('Free')]
+          :prices => [Price.new('Free')],
+          :search_rank => i
       }
     end
 

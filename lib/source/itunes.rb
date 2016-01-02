@@ -13,13 +13,14 @@ module Source
     end
 
     def search(query)
-      film_and_tv_results(query).map { |result|
+      film_and_tv_results(query).map.each_with_index { |result, i|
         Rental.new \
           :service => name,
           :title => Title.new(result['trackCensoredName']),
           :url => result['trackViewUrl'],
           :image_url => result['artworkUrl100'],
-          :prices => ItunesPriceAdapter.new(result).prices
+          :prices => ItunesPriceAdapter.new(result).prices,
+          :search_rank => i
       }.reject { |r|
         r.prices.empty?
       }

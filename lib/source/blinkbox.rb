@@ -11,12 +11,13 @@ module Source
     end
 
     def search(query)
-      BlinkboxFilms::Search.new.search(query).map { |result|
+      BlinkboxFilms::Search.new.search(query).each_with_index.map { |result, i|
         Rental.new \
           :service => name,
           :title => Title.new(result[:title]),
           :url => result[:url],
-          :image_url => result[:image_url]
+          :image_url => result[:image_url],
+          :search_rank => i
       }
     end
   end
