@@ -3,7 +3,7 @@ require 'blinkbox_films'
 module Source
   class Blinkbox
     def name
-      'Blinkbox'
+      'TalkTalk TV'
     end
 
     def url
