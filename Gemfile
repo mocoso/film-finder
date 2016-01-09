@@ -13,8 +13,7 @@ gem 'itunes-search-api',
   :branch => 'use-http-client'
 gem 'google_play_search', '>= 0.0.19'
 gem 'blinkbox_films'
-gem 'bbc_iplayer_search',
-  :git => 'https://github.com/mocoso/bbc_iplayer_search.git'
+gem 'bbc_iplayer_search'
 
 gem 'vacuum'
 
