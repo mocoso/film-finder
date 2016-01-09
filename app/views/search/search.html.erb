@@ -1,0 +1,37 @@
+<% if unavailable_sources.present? %>
+  <p><em>Note: <%= unavailable_sources.map { |s| link_to s.name, s.url
+}.to_sentence.html_safe %> <%= unavailable_sources.size == 1 ? 'was' : 'were' %> unavailable for this search.</em></p>
+<% end %>
+
+<% if films.present? %>
+  <h2>Films or TV series matching '<%= params[:query] %>'</h2>
+  <ol>
+    <% films.each do |film| %>
+      <li>
+        <h3><%= film.title %></h3>
+        <ul class="rentals">
+          <% film.rentals.each do |rental| %>
+            <li class="rental">
+              <h4><%= link_to rental.service, rental.url %></h4>
+              <%= link_to rental.url do %>
+                <% if rental.image_url.present? %>
+                  <%= image_tag rental.image_url, :alt => rental.title %>
+                <% end %>
+              <% end %>
+              <% if rental.prices %>
+                <ol>
+                  <% rental.prices.each do |price| %>
+                    <li><%= price %></li>
+                  <% end %>
+                </ol>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+    <% end %>
+  </ol>
+<% else %>
+  <h2>No films found for '<%= params[:query] %>'</h2>
+<% end %>
+

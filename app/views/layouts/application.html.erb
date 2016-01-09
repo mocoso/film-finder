@@ -9,6 +9,18 @@
 <body>
 
 <div class="container">
+  <h1>Find a film <small>to watch online in the UK</small></h1>
+
+  <%= form_tag search_path, :method => :get do %>
+    <%= text_field_tag :query, params[:query], :placeholder => 'Film or TV series title' %>
+    <%= button_tag 'Find Film' %>
+  <% end %>
+
+  <p>Searches <%= FilmQuery.sources.map { |s| link_to s.name, s.url
+  }.to_sentence.html_safe %> for the film or TV series you want to watch.</p>
+
+  <hr />
+
   <%= yield %>
 </div>
 

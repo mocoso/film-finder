@@ -11,6 +11,7 @@ FilmFinder::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
   root :to => 'search#index'
 
+  get '/search' => 'search#search', :as => :search
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 

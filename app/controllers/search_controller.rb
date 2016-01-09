@@ -2,29 +2,24 @@ class SearchController < ApplicationController
   def index
   end
 
-  protected
-  def searched?
-    params[:query].present?
-  end
-  helper_method :searched?
-
-  def films
-    if searched?
-      film_query.films
+  def search
+    if params[:query].empty?
+      redirect_to '/'
     end
+  end
+
+  protected
+  def films
+      film_query.films
   end
   helper_method :films
 
   def unavailable_sources
-    if searched?
-      film_query.unavailable_sources
-    end
+    film_query.unavailable_sources
   end
   helper_method :unavailable_sources
 
   def film_query
-    if searched?
-      @film_query ||= FilmQuery.new(params[:query])
-    end
+    @film_query ||= FilmQuery.new(params[:query])
   end
 end
