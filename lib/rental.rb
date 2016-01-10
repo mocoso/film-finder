@@ -1,6 +1,9 @@
 class Rental
   include Comparable
 
+  TV_EPISODE_TYPE = :tv_episode
+  FILM_TYPE = :movie
+
   def initialize(attributes)
     @attributes = attributes
   end
@@ -37,6 +40,9 @@ class Rental
     attributes[:certificate]
   end
 
+  def type
+    attributes[:type]
+  end
 
   def ==(other)
     self.attributes == other.attributes
@@ -58,7 +64,8 @@ class Rental
 
   def match_film?(film)
     title.normalised == film.title.normalised &&
-      (year.nil? || film.year.nil? || year == film.year)
+      (year.nil? || film.year.nil? || year == film.year) &&
+      (type.nil? || film.type.nil? || type == film.type)
   end
 
   protected

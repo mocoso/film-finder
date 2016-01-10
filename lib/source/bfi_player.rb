@@ -17,6 +17,7 @@ module Source
           :image_url => result[:image_url],
           :prices => result[:free] ? [Price.new('Free')] : [],
           :certificate => result[:certificate],
+          :type => result[:certificate].present? ? Rental::FILM_TYPE : nil,
           :year => result[:year],
           :search_rank => i
       }
