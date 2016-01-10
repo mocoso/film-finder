@@ -1,9 +1,12 @@
 class Film
-  attr_reader :title, :rentals
+  attr_reader :rentals
 
-  def initialize(title, options)
-    @title = title
-    @rentals = options[:rentals].sort
+  def initialize(rentals)
+    @rentals = rentals.sort
+  end
+
+  def title
+    @rentals.first.title
   end
 
   def year

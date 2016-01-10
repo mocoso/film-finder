@@ -22,7 +22,7 @@ class FilmQuery
     fetch unless fetched?
     rentals.
       group_by { |sr| sr.title.normalised }.
-      map { |f| Film.new(f.last.first.title, :rentals => f.last) }.
+      map { |f| Film.new(f.last) }.
       sort_by { |f| ((self.class.sources.size - f.rentals.size) * RESULTS_PER_SOURCE * 1.5) + f.rentals.sum(&:search_rank) } # Prioritize those which are most highly ranked in source searches
   end
 
