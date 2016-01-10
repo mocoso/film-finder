@@ -22,6 +22,7 @@ module Source
           :year => result['releaseDate'] && Date.parse(result['releaseDate']).year,
           :certificate => result['contentAdvisoryRating'],
           :type => result['kind'] == 'feature-movie' ? Rental::FILM_TYPE : Rental::TV_EPISODE_TYPE,
+          :length_in_minutes => result['trackTimeMillis'].present? ? (result['trackTimeMillis'] / 60000) : nil,
           :prices => ItunesPriceAdapter.new(result).prices,
           :search_rank => i
       }.reject { |r|

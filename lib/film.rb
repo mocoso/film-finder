@@ -31,6 +31,10 @@ class Film
     @rentals.map(&:certificate).select(&:present?).first
   end
 
+  def length_in_minutes
+    @rentals.map(&:length_in_minutes).select(&:present?).first
+  end
+
   def type
     @rentals.map(&:type).select(&:present?).first
   end

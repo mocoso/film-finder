@@ -7,7 +7,8 @@ describe FilmHelper do
     let(:year) { nil }
     let(:certificate) { nil }
     let(:type) { nil }
-    let(:film) { double('film', :year => year, :certificate => certificate, :type => type) }
+    let(:length_in_minutes) { nil }
+    let(:film) { double('film', :year => year, :certificate => certificate, :type => type, :length_in_minutes => length_in_minutes) }
 
     context 'without year or certificate' do
       it { expect(film_meta_data(film)).to eq([]) }
@@ -30,6 +31,13 @@ describe FilmHelper do
       let(:certificate) { 'U' }
 
       it { expect(film_meta_data(film)).to eq(['1978', 'Cert: U']) }
+    end
+
+    context 'with certificate and length' do
+      let(:certificate) { 'U' }
+      let(:length_in_minutes) { '91' }
+
+      it { expect(film_meta_data(film)).to eq(['Cert: U', '91 mins']) }
     end
 
     context 'wtih TV episode' do

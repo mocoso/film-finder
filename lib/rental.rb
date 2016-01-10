@@ -44,6 +44,10 @@ class Rental
     attributes[:type]
   end
 
+  def length_in_minutes
+    attributes[:length_in_minutes]
+  end
+
   def ==(other)
     self.attributes == other.attributes
   end
