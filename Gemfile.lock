@@ -1,12 +1,4 @@
 GIT
-  remote: https://github.com/mocoso/bfi_player_search.git
-  revision: 1c621f983ad7b07aac61f9a8a34986966d4b052b
-  specs:
-    bfi_player_search (0.0.0)
-      httpclient (~> 2.7)
-      nokogiri (~> 1.6)
-
-GIT
   remote: https://github.com/mocoso/itunes-search-api.git
   revision: c9068e0625ebf71bf3d619b1ec5a74b874e4f595
   branch: use-http-client
@@ -54,6 +46,9 @@ GEM
       tzinfo (~> 1.1)
     arel (6.0.3)
     bbc_iplayer_search (0.0.1)
+      httpclient (~> 2.7)
+      nokogiri (~> 1.6)
+    bfi_player_search (0.0.1)
       httpclient (~> 2.7)
       nokogiri (~> 1.6)
     blinkbox_films (0.0.1)
@@ -190,7 +185,7 @@ PLATFORMS
 
 DEPENDENCIES
   bbc_iplayer_search
-  bfi_player_search!
+  bfi_player_search
   blinkbox_films
   dotenv-rails
   exception_notification (>= 4.0)
