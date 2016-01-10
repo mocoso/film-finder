@@ -51,7 +51,7 @@ GEM
     bfi_player_search (0.0.1)
       httpclient (~> 2.7)
       nokogiri (~> 1.6)
-    blinkbox_films (0.0.1)
+    blinkbox_films (0.0.2)
       httpclient (~> 2.7)
       nokogiri (~> 1.6)
     builder (3.2.2)
