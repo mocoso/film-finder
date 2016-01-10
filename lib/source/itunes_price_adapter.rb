@@ -6,26 +6,39 @@ module Source
 
     def prices
       prices = []
-      if result['trackRentalPrice']
-        prices << Price.new("Rent SD £#{result['trackRentalPrice']}")
+
+      if valid_amount?(result['trackRentalPrice'])
+        prices << "Rent SD £#{result['trackRentalPrice']}"
       end
 
-      if result['trackHdRentalPrice']
-        prices << Price.new("Rent HD £#{result['trackHdRentalPrice']}")
+      if valid_amount?(result['trackHdRentalPrice'])
+        prices << "Rent HD £#{result['trackHdRentalPrice']}"
       end
 
-      if result['trackPrice']
-        prices << Price.new("Buy SD £#{result['trackPrice']}")
+      if valid_amount?(result['trackPrice'])
+        prices << "Buy SD £#{result['trackPrice']}"
       end
 
-      if result['trackHdPrice']
-        prices << Price.new("Buy HD £#{result['trackHdPrice']}")
+      if valid_amount?(result['trackHdPrice'])
+        prices << "Buy HD £#{result['trackHdPrice']}"
       end
 
-      prices
+      if valid_amount?(result['collectionPrice'])
+        prices << "Buy SD £#{result['collectionPrice']}"
+      end
+
+      if valid_amount?(result['collectionHdPrice'])
+        prices << "Buy HD £#{result['collectionHdPrice']}"
+      end
+
+      prices.uniq.map { |p| Price.new(p) }
     end
 
     private
     attr_accessor :result
+
+    def valid_amount?(amount)
+      amount && amount > 0
+    end
   end
 end
