@@ -9,6 +9,13 @@
     <% films.each do |film| %>
       <li>
         <h3><%= film.title %></h3>
+        <% if film_meta_data(film).present? %>
+          <ul class="meta-data-list">
+            <% film_meta_data(film).each do |md| %>
+              <li class="meta-data"><%= md %></li>
+            <% end %>
+          </ul>
+        <% end %>
         <ul class="rentals">
           <% film.rentals.each do |rental| %>
             <li class="rental">

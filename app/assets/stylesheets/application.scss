@@ -82,12 +82,22 @@ li.rental {
   margin: 0 2em 0 0;
 }
 
-ul.rentals:after {
+ul.rentals::after, ul.meta-data-list::after {
   content: ".";
   display: block;
   line-height: 1px;
   font-size: 1px;
   clear: both;
+}
+
+li.meta-data {
+  margin-right: 0.3em;
+  float: left;
+  color: #999999;
+}
+
+li.meta-data + li.meta-data::before {
+  content: " | ";
 }
 
 h3 {

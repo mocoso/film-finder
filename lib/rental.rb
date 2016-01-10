@@ -29,6 +29,15 @@ class Rental
     attributes[:search_rank]
   end
 
+  def year
+    attributes[:year]
+  end
+
+  def certificate
+    attributes[:certificate]
+  end
+
+
   def ==(other)
     self.attributes == other.attributes
   end

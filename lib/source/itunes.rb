@@ -19,6 +19,8 @@ module Source
           :title => Title.new(result['trackCensoredName']),
           :url => result['trackViewUrl'],
           :image_url => result['artworkUrl100'],
+          :year => result['releaseDate'] && Date.parse(result['releaseDate']).year,
+          :certificate => result['contentAdvisoryRating'],
           :prices => ItunesPriceAdapter.new(result).prices,
           :search_rank => i
       }.reject { |r|
