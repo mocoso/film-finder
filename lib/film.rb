@@ -3,7 +3,7 @@ class Film
 
   class << self
     def films_from_rentals(rentals)
-      rentals.inject([]) do |films, r|
+      rentals.sort_by(&:search_rank).inject([]) do |films, r|
         if existing_match = films.detect { |f| r.match_film?(f) }
           existing_match.rentals << r
         else
