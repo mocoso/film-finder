@@ -56,6 +56,11 @@ class Rental
     end
   end
 
+  def match_film?(film)
+    title.normalised == film.title.normalised &&
+      (year.nil? || film.year.nil? || year == film.year)
+  end
+
   protected
   attr_reader :attributes
 end

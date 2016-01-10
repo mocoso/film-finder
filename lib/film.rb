@@ -1,6 +1,20 @@
 class Film
   attr_reader :rentals
 
+  class << self
+    def films_from_rentals(rentals)
+      rentals.inject([]) do |films, r|
+        if existing_match = films.detect { |f| r.match_film?(f) }
+          existing_match.rentals << r
+        else
+          films << Film.new([r])
+        end
+
+        films
+      end
+    end
+  end
+
   def initialize(rentals)
     @rentals = rentals
   end
