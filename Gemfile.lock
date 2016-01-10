@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/mocoso/bfi_player_search.git
-  revision: e6417c52bbb87cca3ed6ce7489da00cb420c2bb7
+  revision: 1c621f983ad7b07aac61f9a8a34986966d4b052b
   specs:
     bfi_player_search (0.0.0)
       httpclient (~> 2.7)

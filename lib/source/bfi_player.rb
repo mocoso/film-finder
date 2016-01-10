@@ -15,6 +15,7 @@ module Source
           :title => Title.new(result[:title]),
           :url => result[:url],
           :image_url => result[:image_url],
+          :prices => result[:free] ? [Price.new('Free')] : [],
           :search_rank => i
       }
     end
