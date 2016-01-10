@@ -17,7 +17,7 @@
           </ul>
         <% end %>
         <ul class="rentals">
-          <% film.rentals.each do |rental| %>
+          <% film.rentals.sort.each do |rental| %>
             <li class="rental">
               <h4><%= link_to rental.service, rental.url %></h4>
               <%= link_to rental.url do %>

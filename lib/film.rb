@@ -2,7 +2,7 @@ class Film
   attr_reader :rentals
 
   def initialize(rentals)
-    @rentals = rentals.sort
+    @rentals = rentals
   end
 
   def title
