@@ -64,7 +64,7 @@ class Rental
 
   def match_film?(film)
     title.normalised == film.title.normalised &&
-      (year.nil? || film.year.nil? || year == film.year) &&
+      (year.nil? || film.year.nil? || (year.to_i - film.year.to_i).abs <= 1) &&
       (type.nil? || film.type.nil? || type == film.type)
   end
 
