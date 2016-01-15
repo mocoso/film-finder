@@ -19,6 +19,7 @@ module Source
           :certificate => result[:certificate],
           :type => result[:certificate].present? ? Rental::FILM_TYPE : nil,
           :year => result[:year],
+          :length_in_minutes => result[:running_time_in_minutes],
           :search_rank => i
       }
     end

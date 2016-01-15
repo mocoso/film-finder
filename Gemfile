@@ -14,7 +14,7 @@ gem 'itunes-search-api',
 gem 'google_play_search', '>= 0.0.19'
 gem 'blinkbox_films'
 gem 'bbc_iplayer_search'
-gem 'bfi_player_search'
+gem 'bfi_player_search', '>= 0.0.2'
 
 gem 'vacuum'
 
