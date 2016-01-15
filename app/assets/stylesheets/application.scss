@@ -39,19 +39,38 @@ input, button {
   font-size: 1.5em;
   border: 2px solid $green;
   padding: 0.1em 0.5em 0.1em 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.3em;
+}
+
+input {
+  width: 90%;
 }
 
 button {
   background: $green;
   color: white;
-  padding: 0.1em 0.5em 0.1em 0.5em;
-  border-top-right-radius: 0.3em;
-  border-bottom-right-radius: 0.3em;
+  display: block;
+  margin-top: 0.5em;
 }
 
-input {
-  border-top-left-radius: 0.3em;
-  border-bottom-left-radius: 0.3em;
+@media (min-width: 450px) {
+  input, button {
+    margin-top: 0em;
+  }
+
+  input {
+    width: auto;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    display: inline;
+  }
 }
 
 button:hover {
