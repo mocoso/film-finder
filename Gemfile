@@ -30,7 +30,7 @@ group :assets do
 end
 
 group :production do
-  gem 'unicorn'
+  gem 'puma'
   gem 'rails_12factor' # For Heroku (logging and assets), see https://devcenter.heroku.com/articles/rails4
 end
 
