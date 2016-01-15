@@ -3,7 +3,7 @@ class SearchController < ApplicationController
   end
 
   def search
-    if params[:query].empty?
+    if params[:query].blank?
       redirect_to '/'
     end
   end
