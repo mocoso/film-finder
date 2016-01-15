@@ -1,3 +1,5 @@
+<hr />
+
 <% if unavailable_sources.present? %>
   <p><em>Note: <%= unavailable_sources.map { |s| link_to s.name, s.url
 }.to_sentence.html_safe %> <%= unavailable_sources.size == 1 ? 'was' : 'were' %> unavailable for this search.</em></p>

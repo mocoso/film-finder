@@ -22,7 +22,7 @@ $green: #225522;
 
 h1 {
   font-size: 3em;
-  margin-top: 3em;
+  margin-top: 1em;
 }
 
 h1 small {
@@ -104,6 +104,7 @@ li.meta-data + li.meta-data::before {
 }
 
 h3 {
+  padding-top: 1em;
   margin-top: 2em;
   margin-bottom: 0;
 }
@@ -113,11 +114,8 @@ h4 {
 }
 
 footer {
-  border-top: 1px solid #ccc;
-  margin-top: 30em;
-  padding-top: 3em;
-  padding-bottom: 6em;
-  background-color: #e4e4e4;
+  margin-top: 6em;
+  color: $grey;
 }
 
 .container {

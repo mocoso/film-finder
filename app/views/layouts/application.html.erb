@@ -19,8 +19,6 @@
   <p>Searches <%= FilmQuery.sources.sort_by{ |s| s.name.downcase }.map { |s| link_to s.name, s.url
   }.to_sentence.html_safe %> for the film or TV series you want to watch.</p>
 
-  <hr />
-
   <%= yield %>
 </div>
 
