@@ -28,7 +28,7 @@
               <% if rental.prices %>
                 <ol>
                   <% rental.prices.each do |price| %>
-                    <li><%= price %></li>
+                    <li><%= link_to price, rental.url %></li>
                   <% end %>
                 </ol>
               <% end %>
