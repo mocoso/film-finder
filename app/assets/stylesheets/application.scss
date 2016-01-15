@@ -17,6 +17,9 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+$grey: #7a7a7a;
+$green: #225522;
+
 h1 {
   font-size: 3em;
   margin-top: 3em;
@@ -24,7 +27,7 @@ h1 {
 
 h1 small {
   font-size: 0.7em;
-  color: #666666;
+  color: $grey;
 }
 
 form {
@@ -33,12 +36,12 @@ form {
 
 input, button {
   font-size: 1.5em;
-  border: 2px solid #225522;
+  border: 2px solid $green;
   padding: 0.1em 0.5em 0.1em 0.5em;
 }
 
 button {
-  background: #225522;
+  background: $green;
   color: white;
   padding: 0.1em 0.5em 0.1em 0.5em;
   border-top-right-radius: 0.3em;
@@ -51,7 +54,7 @@ input {
 }
 
 button:hover {
-  background: #447744;
+  background: lighten($green, 10%);
 }
 
 h2 {
@@ -93,7 +96,7 @@ ul.rentals::after, ul.meta-data-list::after {
 li.meta-data {
   margin-right: 0.3em;
   float: left;
-  color: #999999;
+  color: $grey;
 }
 
 li.meta-data + li.meta-data::before {
