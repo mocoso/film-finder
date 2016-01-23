@@ -15,6 +15,7 @@ gem 'blinkbox_films'
 gem 'bbc_iplayer_search'
 gem 'bfi_player_search', '>= 0.0.2'
 
+gem 'rack-timeout'
 gem 'vacuum'
 
 # Gems used only for assets and not required
@@ -30,7 +31,6 @@ end
 
 group :production do
   gem 'puma'
-  gem 'rack-timeout'
   gem 'rails_12factor' # For Heroku (logging and assets), see https://devcenter.heroku.com/articles/rails4
 end
 
