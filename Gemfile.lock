@@ -186,7 +186,6 @@ DEPENDENCIES
   exception_notification (>= 4.0)
   google_play_search (>= 0.0.19)
   itunes-search-api!
-  nokogiri (>= 1.6.6.4)
   parallel
   pry
   puma
