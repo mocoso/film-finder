@@ -17,6 +17,7 @@ module Source
           :title => Title.new(result[:title]),
           :url => result[:url],
           :image_url => result[:image_url],
+          :image_quality_rank => 3,
           :search_rank => i
       }
     end

@@ -16,6 +16,7 @@ module Source
           :title => Title.new(result['ItemAttributes']['Title']),
           :url => result['DetailPageURL'],
           :type => result['ItemAttributes']['ProductGroup'] == 'Movie' ? Rental::FILM_TYPE : Rental::TV_EPISODE_TYPE,
+          :image_quality_rank => 10,
           :search_rank => i
       end
     end

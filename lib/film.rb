@@ -36,7 +36,7 @@ class Film
   end
 
   def image_url
-    @rentals.map(&:image_url).select(&:present?).first
+    @rentals.sort_by(&:image_quality_rank).map(&:image_url).select(&:present?).first
   end
 
   def type

@@ -16,6 +16,7 @@ module Source
           :url => result[:url],
           :image_url => result[:image_url],
           :prices => [Price.new('Free')],
+          :image_quality_rank => 2,
           :search_rank => i
       }
     end

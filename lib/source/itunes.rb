@@ -24,6 +24,7 @@ module Source
           :type => result['kind'] == 'feature-movie' ? Rental::FILM_TYPE : Rental::TV_EPISODE_TYPE,
           :length_in_minutes => result['trackTimeMillis'].present? ? (result['trackTimeMillis'] / 60000) : nil,
           :prices => ItunesPriceAdapter.new(result).prices,
+          :image_quality_rank => 5,
           :search_rank => i
       }.reject { |r|
         r.prices.empty?

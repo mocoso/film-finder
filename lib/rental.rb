@@ -48,6 +48,10 @@ class Rental
     attributes[:length_in_minutes]
   end
 
+  def image_quality_rank
+    attributes[:image_quality_rank]
+  end
+
   def ==(other)
     self.attributes == other.attributes
   end

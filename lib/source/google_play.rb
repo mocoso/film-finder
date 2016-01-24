@@ -18,6 +18,7 @@ module Source
           :url => result.url,
           :image_url => result.logo_url,
           :prices => [Price.new("From #{result.price}")],
+          :image_quality_rank => 1,
           :search_rank => i
       }
     end
