@@ -1,5 +1,7 @@
 module Source
   class BFIPlayer
+    MAX_NUMBER_OF_RESULTS = 10
+
     def name
       'BFI Player'
     end
@@ -9,7 +11,7 @@ module Source
     end
 
     def search(query)
-      raw_results(query).each_with_index.map { |result, i|
+      raw_results(query).take(MAX_NUMBER_OF_RESULTS).each_with_index.map { |result, i|
         Rental.new \
           :service => name,
           :title => Title.new(result[:title]),

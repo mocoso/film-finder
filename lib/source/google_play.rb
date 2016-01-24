@@ -2,6 +2,8 @@ require 'google_play_search'
 
 module Source
   class GooglePlay
+    MAX_NUMBER_OF_RESULTS = 5
+
     def name
       'Google Play'
     end
@@ -11,7 +13,7 @@ module Source
     end
 
     def search(query)
-      available_to_rent_results(query).each_with_index.map { |result, i|
+      available_to_rent_results(query).take(MAX_NUMBER_OF_RESULTS).each_with_index.map { |result, i|
         Rental.new \
           :service => name,
           :title => Title.new(result.name),

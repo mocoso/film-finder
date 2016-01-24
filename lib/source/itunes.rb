@@ -2,6 +2,7 @@ require 'itunes-search-api'
 
 module Source
   class Itunes
+    MAX_NUMBER_OF_RESULTS = 10
     FILM_AND_TV_KINDS = ['feature-movie', 'tv-episode']
 
     def name
@@ -28,7 +29,7 @@ module Source
           :search_rank => i
       }.reject { |r|
         r.prices.empty?
-      }
+      }.take(MAX_NUMBER_OF_RESULTS)
     end
 
     private

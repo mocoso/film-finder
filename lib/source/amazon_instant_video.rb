@@ -1,5 +1,6 @@
 module Source
   class AmazonInstantVideo
+    MAX_NUMBER_OF_RESULTS = 5
 
     def name
       'Amazon Instant Video'
@@ -10,7 +11,7 @@ module Source
     end
 
     def search(query)
-      raw_results(query).each_with_index.map do |result, i|
+      raw_results(query).take(MAX_NUMBER_OF_RESULTS).each_with_index.map do |result, i|
         Rental.new \
           :service => name,
           :title => Title.new(result['ItemAttributes']['Title']),

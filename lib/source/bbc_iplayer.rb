@@ -1,5 +1,7 @@
 module Source
   class BBCIplayer
+    MAX_NUMBER_OF_RESULTS = 5
+
     def name
       'BBC iPlayer'
     end
@@ -9,7 +11,7 @@ module Source
     end
 
     def search(query)
-      available_results(query).each_with_index.map { |result, i|
+      available_results(query).take(MAX_NUMBER_OF_RESULTS).each_with_index.map { |result, i|
         Rental.new \
           :service => name,
           :title => Title.new(result[:title]),

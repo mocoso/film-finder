@@ -1,6 +1,4 @@
 class FilmQuery
-  RESULTS_PER_SOURCE = 10
-
   class << self
     def sources
       @@sources ||= [
@@ -21,7 +19,7 @@ class FilmQuery
   def films
     fetch unless fetched?
     Film.films_from_rentals(rentals).
-      sort_by { |f| ((self.class.sources.size - f.rentals.size) * RESULTS_PER_SOURCE * 1.5) + f.rentals.sum(&:search_rank) } # Prioritize those which are most highly ranked in source searches
+      sort_by { |f| ((self.class.sources.size - f.rentals.size) * max_results_per_source * 1.5) + f.rentals.sum(&:search_rank) } # Prioritize those which are most highly ranked in source searches
   end
 
   def unavailable_sources
@@ -33,6 +31,11 @@ class FilmQuery
   attr_accessor :query, :rentals
   attr_writer :unavailable_sources
 
+  def max_results_per_source
+    fetch unless fetched?
+    rentals.group_by(&:service).values.map(&:size).max
+  end
+
   def fetched?
     @fetched
   end
@@ -40,7 +43,7 @@ class FilmQuery
   def fetch
     results = Parallel.map(self.class.sources, :in_threads => self.class.sources.size) do |source|
       begin
-        [source.search(query).take(RESULTS_PER_SOURCE), nil]
+        [source.search(query), nil]
       rescue StandardError => e
         Rails.logger.error("Failed to query #{source} because of exception #{e}\n#{e.backtrace}")
         [[], source]

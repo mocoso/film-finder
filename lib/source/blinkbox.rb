@@ -2,6 +2,8 @@ require 'blinkbox_films'
 
 module Source
   class Blinkbox
+    MAX_NUMBER_OF_RESULTS = 5
+
     def name
       'TalkTalk TV'
     end
@@ -11,7 +13,7 @@ module Source
     end
 
     def search(query)
-      BlinkboxFilms::Search.new.search(query).each_with_index.map { |result, i|
+      BlinkboxFilms::Search.new.search(query).take(MAX_NUMBER_OF_RESULTS).each_with_index.map { |result, i|
         Rental.new \
           :service => name,
           :title => Title.new(result[:title]),
