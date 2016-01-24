@@ -2,7 +2,7 @@ require 'blinkbox_films'
 
 module Source
   class Blinkbox
-    MAX_NUMBER_OF_RESULTS = 5
+    MAX_NUMBER_OF_RESULTS = 10
 
     def name
       'TalkTalk TV'
