@@ -23,6 +23,10 @@ class Rental
     attributes[:service]
   end
 
+  def prices=(prices)
+    attributes[:prices] = prices
+  end
+
   def prices
     attributes[:prices] || []
   end
@@ -33,6 +37,10 @@ class Rental
 
   def search_rank
     attributes[:search_rank]
+  end
+
+  def year=(year)
+    attributes[:year] = year
   end
 
   def year
