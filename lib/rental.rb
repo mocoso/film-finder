@@ -5,7 +5,7 @@ class Rental
   FILM_TYPE = :movie
 
   RELEASE_YEAR_MARGIN = 1
-  RUNNING_TIME_MARGIN = 5
+  RUNNING_TIME_MARGIN = 10
 
   def initialize(attributes)
     @attributes = attributes
