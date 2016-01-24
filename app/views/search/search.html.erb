@@ -9,34 +9,36 @@
   <h2>Films or TV series matching '<%= params[:query] %>'</h2>
   <ol>
     <% films.each do |film| %>
-      <li>
-        <h3><%= film.title %></h3>
-        <% if film_meta_data(film).present? %>
-          <ul class="meta-data-list">
-            <% film_meta_data(film).each do |md| %>
-              <li class="meta-data"><%= md %></li>
+      <li class="film">
+        <div class="film-info">
+          <h3><%= film.title %></h3>
+          <% if film_meta_data(film).present? %>
+            <ul class="meta-data-list">
+              <% film_meta_data(film).each do |md| %>
+                <li class="meta-data"><%= md %></li>
+              <% end %>
+            </ul>
+          <% end %>
+          <% if film.image_url.present? %>
+            <%= image_tag film.image_url, :alt => film.title %>
+          <% end %>
+        </div>
+        <div class="film-availability">
+          <ul>
+            <% film.rentals.sort.each do |rental| %>
+              <li>
+                <h4><%= link_to rental.service, rental.url %></h4>
+                <% if rental.prices %>
+                  <ol class="price-list">
+                    <% rental.prices.each do |price| %>
+                      <li class="price"><%= link_to price, rental.url %></li>
+                    <% end %>
+                  </ol>
+                <% end %>
+              </li>
             <% end %>
           </ul>
-        <% end %>
-        <ul class="rentals">
-          <% film.rentals.sort.each do |rental| %>
-            <li class="rental">
-              <h4><%= link_to rental.service, rental.url %></h4>
-              <%= link_to rental.url do %>
-                <% if rental.image_url.present? %>
-                  <%= image_tag rental.image_url, :alt => rental.title %>
-                <% end %>
-              <% end %>
-              <% if rental.prices %>
-                <ol>
-                  <% rental.prices.each do |price| %>
-                    <li><%= link_to price, rental.url %></li>
-                  <% end %>
-                </ol>
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
+        </div>
       </li>
     <% end %>
   </ol>

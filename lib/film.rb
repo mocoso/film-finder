@@ -35,6 +35,10 @@ class Film
     @rentals.map(&:length_in_minutes).select(&:present?).first
   end
 
+  def image_url
+    @rentals.map(&:image_url).select(&:present?).first
+  end
+
   def type
     @rentals.map(&:type).select(&:present?).first
   end
