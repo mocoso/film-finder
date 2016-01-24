@@ -51,7 +51,7 @@ GEM
     bfi_player_search (0.0.2)
       httpclient (~> 2.7)
       nokogiri (~> 1.6)
-    blinkbox_films (0.0.3)
+    blinkbox_films (0.0.4)
       httpclient (~> 2.7)
       nokogiri (~> 1.6)
     builder (3.2.2)
@@ -181,7 +181,7 @@ PLATFORMS
 DEPENDENCIES
   bbc_iplayer_search
   bfi_player_search (>= 0.0.2)
-  blinkbox_films (>= 0.0.3)
+  blinkbox_films (>= 0.0.4)
   dotenv-rails
   exception_notification (>= 4.0)
   google_play_search (>= 0.0.19)
