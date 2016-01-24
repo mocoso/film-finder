@@ -29,7 +29,9 @@ module Source
 
     private
     def raw_results(query)
-      BFIPlayerSearch::Search.new.search(query)
+      Rails.cache.fetch("#{self.class.name}::search::#{query}", expires_in: 1.hour) do
+        BFIPlayerSearch::Search.new.search(query)
+      end
     end
   end
 end

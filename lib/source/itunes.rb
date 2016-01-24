@@ -34,7 +34,9 @@ module Source
 
     private
     def raw_results(query)
-      ITunesSearchAPI.search(:term => query, :country => 'GB')
+      Rails.cache.fetch("#{self.class.name}::search::#{query}", expires_in: 1.hour) do
+        ITunesSearchAPI.search(:term => query, :country => 'GB')
+      end
     end
 
     def film_and_tv_results(query)

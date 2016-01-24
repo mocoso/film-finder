@@ -36,17 +36,25 @@ module Source
 
     private
     def raw_results(query)
-      BlinkboxFilms::Search.new.search(query).take(MAX_NUMBER_OF_RESULTS)
+      Rails.cache.fetch("#{self.class.name}::search::#{query}", expires_in: 1.hour) do
+        BlinkboxFilms::Search.new.search(query).take(MAX_NUMBER_OF_RESULTS)
+      end
     end
 
     def fetch_additional_info_for_rental(rental)
-      film_from_page = BlinkboxFilms::FilmPage.from_url(rental.url).film
-      rental.year = film_from_page.release_year
+      film_with_additional_info = film_from_page(rental.url)
+      rental.year = film_with_additional_info.release_year
 
       rental.prices = [
-        film_from_page.rental_price && Price.new("Rent from #{film_from_page.rental_price}"),
-        film_from_page.buy_price && Price.new("Buy from #{film_from_page.buy_price}")
+        film_with_additional_info.rental_price && Price.new("Rent from #{film_with_additional_info.rental_price}"),
+        film_with_additional_info.buy_price && Price.new("Buy from #{film_with_additional_info.buy_price}")
       ].compact
+    end
+
+    def film_from_page(url)
+      Rails.cache.fetch("#{self.class.name}::film::#{url}", expires_in: 1.week) do
+        BlinkboxFilms::FilmPage.from_url(url).film
+      end
     end
   end
 end

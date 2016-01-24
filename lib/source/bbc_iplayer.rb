@@ -25,7 +25,9 @@ module Source
 
     private
     def raw_results(query)
-      BBCIplayerSearch::Search.new.search(query)
+      Rails.cache.fetch("#{self.class.name}::search::#{query}", expires_in: 1.hour) do
+        BBCIplayerSearch::Search.new.search(query)
+      end
     end
 
     def available_results(query)

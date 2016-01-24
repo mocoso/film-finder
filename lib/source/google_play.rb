@@ -26,7 +26,9 @@ module Source
     end
 
     def raw_results(query)
-      GooglePlaySearch::Search.new(:category => 'movies').search(query)
+      Rails.cache.fetch("#{self.class.name}::search::#{query}", expires_in: 1.hour) do
+        GooglePlaySearch::Search.new(:category => 'movies').search(query)
+      end
     end
 
     def available_to_rent_results(query)

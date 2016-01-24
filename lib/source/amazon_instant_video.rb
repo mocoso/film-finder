@@ -24,23 +24,25 @@ module Source
 
     private
     def raw_results(query)
-      request = Vacuum.new('GB')
-      request.associate_tag = ENV['AWS_ASSOCIATE_TAG']
-      response = request.item_search(
-        :query => {
-          'Keywords' => query,
-          'SearchIndex' => 'UnboxVideo',
-          'Availability' => 'Available'
-        }
-      )
-      results = response.parse['ItemSearchResponse']['Items']['Item']
+      Rails.cache.fetch("#{self.class.name}::search::#{query}", expires_in: 1.hour) do
+        request = Vacuum.new('GB')
+        request.associate_tag = ENV['AWS_ASSOCIATE_TAG']
+        response = request.item_search(
+          :query => {
+            'Keywords' => query,
+            'SearchIndex' => 'UnboxVideo',
+            'Availability' => 'Available'
+          }
+        )
+        results = response.parse['ItemSearchResponse']['Items']['Item']
 
-      if results.nil?
-        []
-      elsif results.is_a? Hash
-        [results]
-      else
-        results
+        if results.nil?
+          []
+        elsif results.is_a? Hash
+          [results]
+        else
+          results
+        end
       end
     end
   end

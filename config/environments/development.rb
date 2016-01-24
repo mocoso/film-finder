@@ -35,4 +35,6 @@ FilmFinder::Application.configure do
       :sender_address => %{"notifier" <notifier@example.com>},
       :exception_recipients => %w{exceptions@example.com}
     }
+
+  config.cache_store = :dalli_store
 end
