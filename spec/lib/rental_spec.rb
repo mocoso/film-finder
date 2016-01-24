@@ -27,7 +27,7 @@ describe Rental do
       it { expect(subject.match_film?(film_with_different_title)).to be_falsey }
     end
 
-    context 'with year'
+    context 'with year' do
       let(:year) { '2010' }
       let(:film_with_same_title_and_different_year) { double('Inception film with different year', :title => Title.new('Inception'), :year => '1972') }
       let(:film_with_same_title_and_similar_year) { double('Inception film with similar year', :title => Title.new('Inception'), :year => '2011') }
@@ -37,7 +37,7 @@ describe Rental do
       it { expect(subject.match_film?(film_with_same_title_and_similar_year)).to be_truthy }
       it { expect(subject.match_film?(film_with_same_title_and_different_year)).to be_falsey }
       it { expect(subject.match_film?(film_with_different_title)).to be_falsey }
-
+    end
   end
 end
 
