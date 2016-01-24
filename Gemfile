@@ -15,6 +15,7 @@ gem 'blinkbox_films', '>= 0.0.4'
 gem 'bbc_iplayer_search'
 gem 'bfi_player_search', '>= 0.0.2'
 
+gem 'dalli'
 gem 'vacuum'
 
 # Gems used only for assets and not required
