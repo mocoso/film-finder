@@ -4,6 +4,9 @@ class Rental
   TV_EPISODE_TYPE = :tv_episode
   FILM_TYPE = :movie
 
+  RELEASE_YEAR_MARGIN = 1
+  RUNNING_TIME_MARGIN = 5
+
   def initialize(attributes)
     @attributes = attributes
   end
@@ -72,10 +75,10 @@ class Rental
 
   def match_film?(film)
     title.normalised == film.title.normalised &&
-      (year.nil? || film.year.nil? || (year.to_i - film.year.to_i).abs <= 1) &&
+      (year.nil? || film.year.nil? || (year.to_i - film.year.to_i).abs <= RELEASE_YEAR_MARGIN) &&
       (type.nil? || film.type.nil? || type == film.type) &&
       (certificate.nil? || film.certificate.nil? || certificate == film.certificate) &&
-      (length_in_minutes.nil? || film.length_in_minutes.nil? || (length_in_minutes - film.length_in_minutes).abs < 5)
+      (length_in_minutes.nil? || film.length_in_minutes.nil? || (length_in_minutes - film.length_in_minutes).abs < RUNNING_TIME_MARGIN)
   end
 
   protected
