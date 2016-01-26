@@ -20,6 +20,8 @@ module Source
           :url => result[:url],
           :image_url => result[:image_url],
           :image_quality_rank => 3,
+          :certificate => result[:certificate],
+          :length_in_minutes => result[:running_time_in_minutes],
           :search_rank => i
       }
     end
