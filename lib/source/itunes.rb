@@ -17,7 +17,7 @@ module Source
       film_and_tv_results(query).map.each_with_index { |result, i|
         Rental.new \
           :service => name,
-          :title => Title.new(result['trackCensoredName']),
+          :title => title_for_result(result),
           :url => result['trackViewUrl'],
           :image_url => result['artworkUrl100'],
           :year => result['releaseDate'] && Date.parse(result['releaseDate']).year,
@@ -41,6 +41,14 @@ module Source
 
     def film_and_tv_results(query)
       raw_results(query).select { |f| FILM_AND_TV_KINDS.include? f['kind'] }
+    end
+
+    def title_for_result(result)
+      if result['kind'] == 'feature-movie'
+        Title.new(result['trackCensoredName'])
+      else
+        Title.new([result['collectionCensoredName'], result['trackCensoredName']].uniq.compact.join(': '))
+      end
     end
   end
 end
