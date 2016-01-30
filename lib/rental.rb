@@ -4,7 +4,7 @@ class Rental
   TV_EPISODE_TYPE = :tv_episode
   FILM_TYPE = :movie
 
-  RELEASE_YEAR_MARGIN = 1
+  RELEASE_YEAR_MARGIN = 2
   RUNNING_TIME_MARGIN = 10
 
   def initialize(attributes)
