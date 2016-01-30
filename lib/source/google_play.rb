@@ -19,6 +19,7 @@ module Source
           :title => Title.new(result.name),
           :url => result.url,
           :image_url => result.logo_url,
+          :release_year => release_year_from_title(result.name),
           :prices => [Price.new("From #{result.price}")],
           :image_quality_rank => 1,
           :search_rank => i
@@ -33,6 +34,11 @@ module Source
 
     def available_to_rent_results(query)
       raw_results(query).reject { |r| r.price == '0' }
+    end
+
+    def release_year_from_title(title)
+      match = %r{ \((\d{4})\)$}.match(title)
+      match && match[1]
     end
   end
 end
