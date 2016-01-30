@@ -24,14 +24,14 @@ module Source
       end
 
       if valid_amount?(result['collectionPrice'])
-        prices << "Buy SD £#{result['collectionPrice']}"
+        prices << "Buy series SD £#{result['collectionPrice']}"
       end
 
       if valid_amount?(result['collectionHdPrice'])
-        prices << "Buy HD £#{result['collectionHdPrice']}"
+        prices << "Buy series HD £#{result['collectionHdPrice']}"
       end
 
-      prices.uniq.map { |p| Price.new(p) }
+      prices.map { |p| Price.new(p) }.uniq { |p| p.in_pence }
     end
 
     private
