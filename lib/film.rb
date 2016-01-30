@@ -23,8 +23,8 @@ class Film
     @rentals.first.title
   end
 
-  def year
-    @rentals.map(&:year).select(&:present?).first
+  def release_year
+    @rentals.map(&:release_year).select(&:present?).first
   end
 
   def certificate

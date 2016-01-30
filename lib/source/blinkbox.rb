@@ -43,7 +43,7 @@ module Source
 
     def fetch_additional_info_for_rental(rental)
       film_with_additional_info = film_from_page(rental.url)
-      rental.year = film_with_additional_info.release_year
+      rental.release_year = film_with_additional_info.release_year
 
       rental.prices = [
         film_with_additional_info.rental_price && Price.new("Rent from #{film_with_additional_info.rental_price}"),

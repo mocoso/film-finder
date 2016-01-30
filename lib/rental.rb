@@ -39,12 +39,12 @@ class Rental
     attributes[:search_rank]
   end
 
-  def year=(year)
-    attributes[:year] = year
+  def release_year=(release_year)
+    attributes[:release_year] = release_year
   end
 
-  def year
-    attributes[:year]
+  def release_year
+    attributes[:release_year]
   end
 
   def certificate
@@ -83,7 +83,7 @@ class Rental
 
   def match_film?(film)
     title.normalised == film.title.normalised &&
-      (year.nil? || film.year.nil? || (year.to_i - film.year.to_i).abs <= RELEASE_YEAR_MARGIN) &&
+      (release_year.nil? || film.release_year.nil? || (release_year.to_i - film.release_year.to_i).abs <= RELEASE_YEAR_MARGIN) &&
       (type.nil? || film.type.nil? || type == film.type) &&
       (certificate.nil? || film.certificate.nil? || certificate == film.certificate) &&
       (length_in_minutes.nil? || film.length_in_minutes.nil? || (length_in_minutes - film.length_in_minutes).abs < RUNNING_TIME_MARGIN)

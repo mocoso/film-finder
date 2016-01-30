@@ -20,7 +20,7 @@ module Source
           :title => title_for_result(result),
           :url => result['trackViewUrl'],
           :image_url => result['artworkUrl100'],
-          :year => result['releaseDate'] && Date.parse(result['releaseDate']).year,
+          :release_year => result['releaseDate'] && Date.parse(result['releaseDate']).year,
           :certificate => result['contentAdvisoryRating'],
           :type => result['kind'] == 'feature-movie' ? Rental::FILM_TYPE : Rental::TV_EPISODE_TYPE,
           :length_in_minutes => result['trackTimeMillis'].present? ? (result['trackTimeMillis'] / 60000) : nil,

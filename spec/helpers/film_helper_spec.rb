@@ -4,18 +4,18 @@ describe FilmHelper do
   include FilmHelper
 
   describe '#film_meta_data' do
-    let(:year) { nil }
+    let(:release_year) { nil }
     let(:certificate) { nil }
     let(:type) { nil }
     let(:length_in_minutes) { nil }
-    let(:film) { double('film', :year => year, :certificate => certificate, :type => type, :length_in_minutes => length_in_minutes) }
+    let(:film) { double('film', :release_year => release_year, :certificate => certificate, :type => type, :length_in_minutes => length_in_minutes) }
 
     context 'without year or certificate' do
       it { expect(film_meta_data(film)).to eq([]) }
     end
 
     context 'with year' do
-      let(:year) { '1978' }
+      let(:release_year) { '1978' }
 
       it { expect(film_meta_data(film)).to eq(['1978']) }
     end
@@ -27,7 +27,7 @@ describe FilmHelper do
     end
 
     context 'with year and certificate' do
-      let(:year) { '1978' }
+      let(:release_year) { '1978' }
       let(:certificate) { 'U' }
 
       it { expect(film_meta_data(film)).to eq(['1978', 'Cert: U']) }

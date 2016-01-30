@@ -14,23 +14,23 @@ describe Rental do
   end
 
   describe '#match_film?' do
-    subject(:rental) { Rental.new(:title => Title.new('Inception'), :year => year) }
+    subject(:rental) { Rental.new(:title => Title.new('Inception'), :release_year => release_year) }
 
-    let(:film_with_same_title) { double('Inception film', :title => Title.new('Inception'), :year => nil) }
-    let(:film_with_different_title) { double('Hangover film', :title => Title.new('The Hangover'), :year => nil) }
-    let(:film_with_same_title_and_year) { double('Inception film with year', :title => Title.new('Inception'), :year => '2010') }
+    let(:film_with_same_title) { double('Inception film', :title => Title.new('Inception'), :release_year => nil) }
+    let(:film_with_different_title) { double('Hangover film', :title => Title.new('The Hangover'), :release_year => nil) }
+    let(:film_with_same_title_and_year) { double('Inception film with year', :title => Title.new('Inception'), :release_year => '2010') }
 
     context 'no year' do
-      let(:year) { nil }
+      let(:release_year) { nil }
       it { expect(subject.match_film?(film_with_same_title)).to be_truthy }
       it { expect(subject.match_film?(film_with_same_title_and_year)).to be_truthy }
       it { expect(subject.match_film?(film_with_different_title)).to be_falsey }
     end
 
     context 'with year' do
-      let(:year) { '2010' }
-      let(:film_with_same_title_and_different_year) { double('Inception film with different year', :title => Title.new('Inception'), :year => '1972') }
-      let(:film_with_same_title_and_similar_year) { double('Inception film with similar year', :title => Title.new('Inception'), :year => '2011') }
+      let(:release_year) { '2010' }
+      let(:film_with_same_title_and_different_year) { double('Inception film with different year', :title => Title.new('Inception'), :release_year => '1972') }
+      let(:film_with_same_title_and_similar_year) { double('Inception film with similar year', :title => Title.new('Inception'), :release_year => '2011') }
 
       it { expect(subject.match_film?(film_with_same_title)).to be_truthy }
       it { expect(subject.match_film?(film_with_same_title_and_year)).to be_truthy }

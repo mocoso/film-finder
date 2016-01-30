@@ -20,7 +20,7 @@ module Source
           :prices => result[:free] ? [Price.new('Free')] : [],
           :certificate => result[:certificate],
           :type => result[:certificate].present? ? Rental::FILM_TYPE : nil,
-          :year => result[:year],
+          :release_year => result[:year],
           :length_in_minutes => result[:running_time_in_minutes],
           :image_quality_rank => 2,
           :search_rank => i
