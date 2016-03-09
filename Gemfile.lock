@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/mocoso/itunes-search-api.git
-  revision: c9068e0625ebf71bf3d619b1ec5a74b874e4f595
+  revision: 4b4b44acedd268fb1859b29d0b68125fa96b47e4
   branch: use-http-client
   specs:
     itunes-search-api (0.1.0)
