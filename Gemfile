@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.2.4'
 
-gem 'rails', '~> 4.2.5.1'
+gem 'rails', '~> 4.2.6'
 
 gem 'exception_notification', '>= 4.0'
 gem 'parallel'
