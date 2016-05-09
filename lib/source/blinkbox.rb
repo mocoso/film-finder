@@ -10,7 +10,7 @@ module Source
     end
 
     def url
-      'http://www.blinkbox.com/'
+      'https://www.talktalktvstore.co.uk/'
     end
 
     def search(query)
