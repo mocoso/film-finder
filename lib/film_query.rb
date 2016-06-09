@@ -5,7 +5,7 @@ class FilmQuery
         Source::AmazonInstantVideo.new,
         Source::BBCIplayer.new,
         Source::BFIPlayer.new,
-        Source::Blinkbox.new,
+        Source::TalkTalkTV.new,
         Source::GooglePlay.new,
         Source::Itunes.new
       ]

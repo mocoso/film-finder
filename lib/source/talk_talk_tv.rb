@@ -1,7 +1,7 @@
-require 'blinkbox_films'
+require 'talktalk_tv'
 
 module Source
-  class Blinkbox
+  class TalkTalkTV
     MAX_NUMBER_OF_RESULTS = 10
     MAX_NUMBER_TO_FETCH_ADDITIONAL_INFO_FOR = 3
 
@@ -37,7 +37,7 @@ module Source
     private
     def raw_results(query)
       Rails.cache.fetch("#{self.class.name}::search::#{query}", expires_in: 1.hour) do
-        BlinkboxFilms::Search.new.search(query).take(MAX_NUMBER_OF_RESULTS)
+        ::TalkTalkTV::Search.new.search(query).take(MAX_NUMBER_OF_RESULTS)
       end
     end
 
@@ -53,7 +53,7 @@ module Source
 
     def film_from_page(url)
       Rails.cache.fetch("#{self.class.name}::film::#{url}", expires_in: 1.week) do
-        BlinkboxFilms::FilmPage.from_url(url).film
+        ::TalkTalkTV::FilmPage.from_url(url).film
       end
     end
   end

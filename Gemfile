@@ -11,7 +11,7 @@ gem 'itunes-search-api',
   :git => 'https://github.com/mocoso/itunes-search-api.git',
   :branch => 'use-http-client'
 gem 'google_play_search', '>= 0.0.19'
-gem 'blinkbox_films', '>= 0.0.6'
+gem 'talktalk_tv', '>= 0.0.7'
 gem 'bbc_iplayer_search'
 gem 'bfi_player_search', '>= 0.0.2'
 
