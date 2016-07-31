@@ -17,7 +17,7 @@ describe Source::ItunesPriceAdapter do
     }
 
     it 'should return purchase and rental price' do
-      subject.prices.should == [
+      expect(subject.prices).to eq [
         Price.new('Rent SD £2.99'),
         Price.new('Rent HD £3.99'),
         Price.new('Buy SD £7.99'),
@@ -36,7 +36,7 @@ describe Source::ItunesPriceAdapter do
       }
 
       it 'should return purchase and rental price' do
-        subject.prices.should == [
+        expect(subject.prices).to eq [
           Price.new('Buy SD £1.89'),
           Price.new('Buy HD £2.49')
         ]
@@ -52,14 +52,14 @@ describe Source::ItunesPriceAdapter do
       }
 
       it 'should return a single price' do
-        subject.prices.should == [Price.new('Buy SD £1.89')]
+        expect(subject.prices).to eq [Price.new('Buy SD £1.89')]
       end
     end
     context 'when it is not available to buy or rent' do
       subject { Source::ItunesPriceAdapter.new({}) }
 
       it 'should return no prices' do
-        subject.prices.should == []
+        expect(subject.prices).to eq []
       end
     end
   end

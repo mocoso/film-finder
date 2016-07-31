@@ -7,10 +7,10 @@ describe Rental do
     let(:high_priced) { Rental.new :prices => [Price.new('£5.99')] }
     let(:low_priced) { Rental.new :prices => [Price.new('£0.99'), Price.new('£9.99')] }
 
-    specify { (no_priced <=> high_priced).should == 1 }
-    specify { (high_priced <=> low_priced).should == 1 }
-    specify { (low_priced <=> high_priced).should == -1 }
-    specify { (high_priced <=> no_priced).should == -1 }
+    specify { expect(no_priced <=> high_priced).to eq 1 }
+    specify { expect(high_priced <=> low_priced).to eq 1 }
+    specify { expect(low_priced <=> high_priced).to eq(-1) }
+    specify { expect(high_priced <=> no_priced).to eq(-1) }
   end
 
   describe '#match_film?' do

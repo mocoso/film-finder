@@ -2,7 +2,7 @@ require 'spec_helper.rb'
 
 describe Price do
   describe '#to_s' do
-    specify { Price.new('From £3.99').to_s.should == 'From £3.99' }
+    specify { expect(Price.new('From £3.99').to_s).to eq 'From £3.99' }
   end
 
   describe '#<=>' do
@@ -11,9 +11,9 @@ describe Price do
     let(:another_low) { Price.new('£2.49') }
     let(:free)        { Price.new('Free') }
 
-    specify { (high <=> low).should == 1 }
-    specify { (high <=> free).should == 1 }
-    specify { (free <=> low).should == -1 }
-    specify { (low <=> another_low).should == 0 }
+    specify { expect(high <=> low).to eq 1 }
+    specify { expect(high <=> free).to eq 1 }
+    specify { expect(free <=> low).to eq(-1) }
+    specify { expect(low <=> another_low).to eq 0 }
   end
 end
