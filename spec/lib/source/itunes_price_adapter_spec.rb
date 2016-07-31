@@ -58,7 +58,7 @@ describe Source::ItunesPriceAdapter do
     context 'when it is not available to buy or rent' do
       subject { Source::ItunesPriceAdapter.new({}) }
 
-      it 'should return the purchase price' do
+      it 'should return no prices' do
         subject.prices.should == []
       end
     end
