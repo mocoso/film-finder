@@ -1,13 +1,4 @@
 GIT
-  remote: https://github.com/mocoso/google_play_search.git
-  revision: c6aa1ecebe53c21c16ad8e20b469de7f0803d54c
-  branch: make-parsing-more-robust
-  specs:
-    google_play_search (0.0.21)
-      httpclient (~> 2.7)
-      nokogiri (~> 1.5)
-
-GIT
   remote: https://github.com/mocoso/itunes-search-api.git
   revision: 4b4b44acedd268fb1859b29d0b68125fa96b47e4
   branch: use-http-client
@@ -76,6 +67,9 @@ GEM
     execjs (2.6.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    google_play_search (0.0.22)
+      httpclient (~> 2.7)
+      nokogiri (~> 1.5)
     hike (1.2.3)
     httpclient (2.8.0)
     i18n (0.7.0)
@@ -195,7 +189,7 @@ DEPENDENCIES
   dalli
   dotenv-rails
   exception_notification (>= 4.0)
-  google_play_search!
+  google_play_search (>= 0.0.22)
   itunes-search-api!
   parallel
   pry

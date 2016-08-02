@@ -10,9 +10,7 @@ gem 'parallel'
 gem 'itunes-search-api',
   :git => 'https://github.com/mocoso/itunes-search-api.git',
   :branch => 'use-http-client'
-gem 'google_play_search',
-  :git => 'https://github.com/mocoso/google_play_search.git',
-  :branch => 'make-parsing-more-robust'
+gem 'google_play_search', '>= 0.0.22'
 gem 'talktalk_tv', '>= 0.0.7'
 gem 'bbc_iplayer_search'
 gem 'bfi_player_search', '>= 0.0.2'
