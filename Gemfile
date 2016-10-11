@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.1'
 
-gem 'rails', '~> 4.2.6'
+gem 'rails', '~> 5.0.0'
 
 gem 'exception_notification', '>= 4.0'
 gem 'parallel'
@@ -21,7 +21,7 @@ gem 'vacuum'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', '~> 4.0.0'
+  gem 'sass-rails', '~> 5.0.0'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
