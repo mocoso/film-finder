@@ -10,7 +10,7 @@ class SearchController < ApplicationController
 
   protected
   def films
-      film_query.films
+    film_query.films
   end
   helper_method :films
 
