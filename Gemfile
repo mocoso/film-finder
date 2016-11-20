@@ -12,7 +12,7 @@ gem 'itunes-search-api',
   :branch => 'use-http-client'
 gem 'google_play_search', '>= 0.0.22'
 gem 'talktalk_tv', '>= 0.0.7'
-gem 'bbc_iplayer_search'
+gem 'bbc_iplayer_search', '>= 0.0.2'
 gem 'bfi_player_search', '>= 0.0.2'
 
 gem 'dalli'
