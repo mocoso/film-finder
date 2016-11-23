@@ -13,7 +13,7 @@ gem 'itunes-search-api',
 gem 'google_play_search', '>= 0.0.22'
 gem 'talktalk_tv', '>= 0.0.7'
 gem 'bbc_iplayer_search', '>= 0.0.2'
-gem 'bfi_player_search', '>= 0.0.2'
+gem 'bfi_player_search', '>= 0.0.3'
 
 gem 'dalli'
 gem 'vacuum'

@@ -50,7 +50,7 @@ GEM
     bbc_iplayer_search (0.0.2)
       httpclient (~> 2.7)
       nokogiri (~> 1.6)
-    bfi_player_search (0.0.2)
+    bfi_player_search (0.0.3)
       httpclient (~> 2.7)
       nokogiri (~> 1.6)
     builder (3.2.2)
@@ -186,7 +186,7 @@ PLATFORMS
 
 DEPENDENCIES
   bbc_iplayer_search (>= 0.0.2)
-  bfi_player_search (>= 0.0.2)
+  bfi_player_search (>= 0.0.3)
   dalli
   dotenv-rails
   exception_notification (>= 4.0)
