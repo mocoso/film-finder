@@ -18,6 +18,11 @@ class FilmQuery
 
   def films
     fetch unless fetched?
+
+    unless self.unavailable_sources.size < self.class.sources.size
+      raise "No sources are responding correctly"
+    end
+
     Film.films_from_rentals(rentals).
       sort_by { |f| ((self.class.sources.size - f.rentals.size) * max_results_per_source * 1.5) + f.rentals.sum(&:search_rank) } # Prioritize those which are most highly ranked in source searches
   end
