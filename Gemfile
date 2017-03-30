@@ -11,9 +11,9 @@ gem 'itunes-search-api',
   :git => 'https://github.com/mocoso/itunes-search-api.git',
   :branch => 'use-http-client'
 gem 'google_play_search', '>= 0.0.22'
-gem 'talktalk_tv', '>= 0.0.7'
-gem 'bbc_iplayer_search', '>= 0.0.2'
-gem 'bfi_player_search', '>= 0.0.3'
+gem 'talktalk_tv', '>= 0.0.8'
+gem 'bbc_iplayer_search', '>= 0.0.4'
+gem 'bfi_player_search', '>= 0.0.4'
 
 gem 'dalli'
 gem 'vacuum'
